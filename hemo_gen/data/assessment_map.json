@@ -1,0 +1,16 @@
+{
+  "post_assessment": {
+    "complication": { "assessment_id": -21, "no_complication_option_id": -96 },
+    "technical": { "assessment_id": -22, "no_complication_option_id": -85 },
+    "nursing": {
+      "assessment_id": -23,
+      "monitor_vital_signs_option_id": -78
+    },
+    "health_education": {
+      "assessment_id": -24,
+      "nutrition_option_id": -63,
+      "vascular_access_option_id": -62,
+      "exercise_option_id": -61
+    }
+  }
+}

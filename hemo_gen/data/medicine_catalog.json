@@ -1,0 +1,16 @@
+{
+  "espogen": {
+    "medicine_id": -234,
+    "name": "Espogen",
+    "override_dose_amount": 4000,
+    "override_unit": "unit",
+    "route": -9,
+    "override_route": -9,
+    "frequency_bs": 0,
+    "dose_per_target": 1,
+    "target_loop_amount": 1,
+    "limit_dose": 0,
+    "init_session_count": 0,
+    "non_dialysis": false
+  }
+}

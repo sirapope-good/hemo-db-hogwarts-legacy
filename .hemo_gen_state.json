@@ -1,0 +1,24 @@
+{
+  "patients": {
+    "6505315": {
+      "last_treatment_no": 17,
+      "last_session_date": "2025-09-18",
+      "dialysis_prescription_count": 3,
+      "sessions_on_current_rx": 1,
+      "max_sessions_on_rx": 4,
+      "medicine_prescription_ids": {
+        "espogen": "77c53f07-8a7f-4b24-b752-9f0eac5cad48"
+      }
+    },
+    "6455308": {
+      "last_treatment_no": 16,
+      "last_session_date": "2025-09-29",
+      "dialysis_prescription_count": 3,
+      "sessions_on_current_rx": 2,
+      "max_sessions_on_rx": 3,
+      "medicine_prescription_ids": {
+        "espogen": "203d4db7-9ee6-4276-ac4b-9ac0f7ccfbf5"
+      }
+    }
+  }
+}
