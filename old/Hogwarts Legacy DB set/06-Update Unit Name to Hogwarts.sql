@@ -1,0 +1,4 @@
+UPDATE public."Units"
+SET "Name" = 'Hogwarts',
+    "Updated" = CURRENT_TIMESTAMP
+WHERE "Id" = -1;
