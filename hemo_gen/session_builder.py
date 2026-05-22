@@ -32,7 +32,8 @@ B03_COLUMNS = [
     "AvShunt_AVShuntId", "AvShunt_ShuntSite", "AvShunt_Ac", "AvShunt_AFillVolume",
     "AvShunt_VFillVolume", "AvShunt_ACatheterVolume", "AvShunt_VCatheterVolume",
     "AvShunt_ANeedleSize", "AvShunt_VNeedleSize", "AvShunt_ANeedleTimes", "AvShunt_VNeedleTimes",
-    "DoctorConsent", "ShiftSectionId", "NursesInShift", "TreatmentNo", "DoctorId", "AutoStockId", "SentPDF",
+    "DoctorConsent", "ShiftSectionId", "NursesInShift", "StaffAllocation", "TreatmentNo",
+    "DoctorId", "AutoStockId", "SentPDF",
 ]
 
 
@@ -160,9 +161,9 @@ def build_session(
         str(round(last_post_weight, 1)),
         to_sql_timestamp(check_in),
         str(pre),
-        "NULL",
-        "NULL",
-        "NULL",
+        "0",
+        "0",
+        "0",
         "0",
         "0",
         str(uf),
@@ -192,6 +193,7 @@ def build_session(
         sql_bool(False),
         str(slot.section_id),
         sql_uuid_array(nurses),
+        sql_uuid_array([]),
         str(treatment_no),
         sql_nullable_str(profile.patient.doctor_id),
         "NULL",

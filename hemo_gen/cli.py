@@ -39,6 +39,16 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="สร้าง B05 ใหม่จาก B03 ทั้งไฟล์ (แก้กรณี Pre/Post vitals หาย)",
     )
+    p.add_argument(
+        "--restore-b07",
+        action="store_true",
+        help="เขียน B07 จาก state/B06 เมื่อไฟล์หาย (ไม่ generate session ซ้ำ)",
+    )
+    p.add_argument(
+        "--validate-b03",
+        action="store_true",
+        help="ตรวจ Pre/Post/Last/UFGoal ใน B03 (ไม่แก้ไฟล์)",
+    )
     return p
 
 
@@ -80,6 +90,29 @@ def main(argv: list[str] | None = None) -> int:
 
         pre, post, items = rebuild_b05(base, args.patient_id)
         print(f"rebuild B05: pre={pre} post={post} items={items}")
+        return 0
+
+    if args.validate_b03:
+        from hemo_gen.validate_b03 import validate_b03
+
+        bad, total, issues = validate_b03(base, args.patient_id)
+        scope = f"patient={args.patient_id}" if args.patient_id else "all"
+        print(f"validate B03 ({scope}): bad={bad}/{total}")
+        for line in issues[:20]:
+            print(f"  {line}")
+        if len(issues) > 20:
+            print(f"  ... และอีก {len(issues) - 20} รายการ")
+        return 1 if bad else 0
+
+    if args.restore_b07:
+        from hemo_gen.restore_b07 import restore_b07
+
+        results = restore_b07(base, args.patient_id)
+        for pid, rx_id, written in results:
+            status = "เขียนแล้ว" if written else "มีในไฟล์แล้ว"
+            print(f"restore B07: patient={pid} prescription={rx_id} ({status})")
+        if not results:
+            print("restore B07: ไม่มีข้อมูลใน state — ระบุ --patient-id หรือรัน generate ก่อน")
         return 0
 
     if not args.patient_id:

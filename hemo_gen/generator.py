@@ -95,8 +95,6 @@ def run_generator(cfg: GenConfig) -> GenResult:
     session_slots = build_session_slots(profile, cfg.start_date, cfg.end_date, rng)
     catalog = load_medicine_catalog()
     amap = load_assessment_map()
-    med_rx_id = ps.medicine_prescription_ids.get("espogen")
-
     b01_rows: list[list[str]] = []
     b02_rows: list[list[str]] = []
     b03_rows: list[list[str]] = []
@@ -118,20 +116,19 @@ def run_generator(cfg: GenConfig) -> GenResult:
         b01_rows.append(build_b01_row(profile, established))
         result.b01_written = True
 
+    med_rx_id = find_patient_uuid_in_file(b07_path, "MedicinePrescriptions", "PatientId", cfg.patient_id)
     if not med_rx_id:
-        med_rx_id = find_patient_uuid_in_file(b07_path, "MedicinePrescriptions", "PatientId", cfg.patient_id)
-    if not med_rx_id:
+        stale_rx_id = ps.medicine_prescription_ids.get("espogen")
         med_row = build_espogen_prescription(
             cfg.patient_id,
             dt.datetime.combine(first_session_date, dt.time(5, 0), tzinfo=dt.timezone.utc),
             cfg.end_date,
             catalog,
+            prescription_id=stale_rx_id,
         )
         med_rx_id = med_row.id
         b07_rows.append(med_row.fields)
-        ps.medicine_prescription_ids["espogen"] = med_rx_id
-    elif "espogen" not in ps.medicine_prescription_ids:
-        ps.medicine_prescription_ids["espogen"] = med_rx_id
+    ps.medicine_prescription_ids["espogen"] = med_rx_id
 
     is_first_rx = True
     for slot in session_slots:

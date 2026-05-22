@@ -1,9 +1,9 @@
 {
   "patients": {
     "6505315": {
-      "last_treatment_no": 17,
-      "last_session_date": "2025-09-18",
-      "dialysis_prescription_count": 3,
+      "last_treatment_no": 148,
+      "last_session_date": "2026-05-21",
+      "dialysis_prescription_count": 45,
       "sessions_on_current_rx": 1,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {

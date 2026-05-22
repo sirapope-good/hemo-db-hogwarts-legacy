@@ -33,9 +33,10 @@ def build_espogen_prescription(
     administer_date: dt.datetime,
     expire_date: dt.date | None,
     catalog: dict | None = None,
+    prescription_id: str | None = None,
 ) -> MedicinePrescriptionRow:
     cat = (catalog or load_medicine_catalog())["espogen"]
-    rx_id = str(uuid.uuid4())
+    rx_id = prescription_id or str(uuid.uuid4())
     now = dt.datetime.now(dt.timezone.utc)
     ts = to_sql_timestamp(now)
     exp = "NULL" if expire_date is None else to_sql_timestamp(

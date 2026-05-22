@@ -28,7 +28,7 @@ python generate_patient_dialysis.py --patient-id 6505315 --span 2m --dry-run
 # seed คงที่ (ถ้าไม่ระบุ ใช้ hash ของ patient-id)
 python generate_patient_dialysis.py --patient-id 6505315 --seed 42
 
-# แก้น้ำหนัก/UF goal ใน B03 seed (UFGoal=0)
+# แก้ B03 ให้ตรงระบบจริง: wheel/cloth/food=0, PostWheelchair=NULL, StaffAllocation='{}'
 python generate_patient_dialysis.py --patch-b03-weights
 
 # เติม B04 ให้ hemosheet ใน B03 ที่ยังไม่มี DialysisRecord (รวม seed เดิม)
@@ -43,6 +43,9 @@ python generate_patient_dialysis.py --rebuild-b05
 
 # สร้าง B05 ใหม่จาก B03 ทั้งไฟล์ (กรณี Pre/Post vitals หาย)
 python generate_patient_dialysis.py --rebuild-b05
+
+# B07 หายแต่ B06/state ยังมี PrescriptionId — ไม่ generate session ซ้ำ
+python generate_patient_dialysis.py --restore-b07 --patient-id 6505315
 ```
 
 | พารามิเตอร์ | ค่า |
@@ -102,5 +105,6 @@ hemo_gen/
 | `syntax error at or near "Id"` ใน B01/B02/B03 | ไฟล์ seed ถูก merge ผิด — คืนจาก `290426_backup/` แล้วรัน generator ใหม่ |
 | `duplicate key` B07 | รัน B07 ซ้ำใน DB แล้ว — ลบแถว `MedicinePrescriptions` ที่ซ้ำ หรือข้าม B07 ใน bat ถ้าโหลดแล้ว |
 | FK B05/B06 ล้มเหลว | มักเพราะ B03 ยังไม่ผ่าน — แก้ B01–B04 ก่อน แล้วรัน B03 → B05 → B06 |
+| รัน generate แล้วไม่มี `B07-MedicinePrescriptions.sql` | `.hemo_gen_state.json` ยังจำ UUID จากรันก่อน — รัน `--restore-b07` หรือลบ key `medicine_prescription_ids` ใน state แล้ว generate ใหม่ |
 | Hemosheet ต้นๆมี DialysisRecord แต่รอบหลังไม่มี | B03 **seed** ไม่มี B04 — รัน `--rebuild-b04` หลัง B03 seed โหลดแล้ว |
 | B05 ไม่มี Pre/Post vitals | `python generate_patient_dialysis.py --rebuild-b05` (หลัง B03 สำเร็จ) |
