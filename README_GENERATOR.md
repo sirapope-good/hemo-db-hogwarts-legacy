@@ -19,6 +19,17 @@ python generate_patient_dialysis.py --list-patients
 # สร้างข้อมูล (default span = วันนี้ ตาม Asia/Bangkok)
 python generate_patient_dialysis.py --patient-id 6505315 --span today
 
+# สร้าง B01–B07 ทุกคนใน 05-Patients.sql (30 คน) + patch B03 / rebuild B05 / B04-all
+python generate_patient_dialysis.py --generate-all --span today
+
+# หรือ double-click / รัน bat (Windows)
+generate_all_patients.bat
+generate_all_patients.bat --span 4m
+generate_all_patients.bat --dry-run
+
+# generate-all โดยไม่รัน post-steps (patch/rebuild)
+python generate_patient_dialysis.py --generate-all --span today --skip-post-steps
+
 # ช่วง 2 / 4 / 6 เดือนจาก 2025-08-01
 python generate_patient_dialysis.py --patient-id 6455308 --span 4m
 
@@ -28,7 +39,7 @@ python generate_patient_dialysis.py --patient-id 6505315 --span 2m --dry-run
 # seed คงที่ (ถ้าไม่ระบุ ใช้ hash ของ patient-id)
 python generate_patient_dialysis.py --patient-id 6505315 --seed 42
 
-# แก้ B03 ให้ตรงระบบจริง: wheel/cloth/food=0, PostWheelchair=NULL, StaffAllocation='{}'
+# แก้ B03 ให้ตรงระบบจริง: wheel/cloth/food/postWheel=0, blood/extra=NULL, StaffAllocation='{}'
 python generate_patient_dialysis.py --patch-b03-weights
 
 # เติม B04 ให้ hemosheet ใน B03 ที่ยังไม่มี DialysisRecord (รวม seed เดิม)
@@ -50,7 +61,9 @@ python generate_patient_dialysis.py --restore-b07 --patient-id 6505315
 
 | พารามิเตอร์ | ค่า |
 |-------------|-----|
-| `--patient-id` | บังคับ (ยกเว้น `--list-patients` / `--rebuild-b05`) |
+| `--patient-id` | บังคับเมื่อ generate 1 คน (หรือใช้ `--generate-all`) |
+| `--generate-all` | สร้าง B01–B07 ทุกคนใน `05-Patients.sql` |
+| `--skip-post-steps` | กับ `--generate-all`: ข้าม patch B03 / rebuild B05 / B04-all |
 | `--span` | `2m` \| `4m` \| `6m` \| `today` (default) |
 | `--start-date` | ตายตัว `2025-08-01` ใน v1 |
 | `--dry-run` | พิมพ์สรุป ไม่เขียน SQL |
@@ -88,13 +101,13 @@ hemo_gen/
   patient_loader.py, schedule.py, prescription.py
   medicine_prescription.py, session_builder.py
   dialysis_records.py, assessment.py, execution.py
-  generator.py, profiles.py, rebuild_b05.py
+  generator.py, profiles.py, rebuild_b05.py, generate_all.py
   data/assessment_map.json, medicine_catalog.json
 ```
 
 ## หมายเหตุ
 
-- รันทีละ 1 คน — คนถัดไปจะ **append** เป็น `INSERT` บล็อกใหม่ต่อท้ายไฟล์ (ไม่ merge เข้า VALUES เดิมของ seed — ป้องกัน syntax error)
+- รันทีละ 1 คน — หรือ `--generate-all` / `generate_all_patients.bat` สำหรับทุกคนใน `05-Patients.sql`
 - B06 ต้องมี B07 ก่อนเสมอ (`PrescriptionId` required)
 - ถ้า assessment ใน DB ไม่ตรง INIT ให้ regenerate `hemo_gen/data/assessment_map.json` จาก `assessments.csv` ใน HemoDialysisPro repo
 

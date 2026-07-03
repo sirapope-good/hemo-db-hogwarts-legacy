@@ -1,97 +1,190 @@
 ================================================================================
-README — การใช้ generate_b03_incremental.py
+README — Hogwarts SQL seed & Python generators
+================================================================================
+
+เอกสารหลัก (อัปเดตล่าสุด)
+-------------------------
+- README.txt              ไฟล์นี้ — ภาพรวม + คำสั่งที่ใช้บ่อย
+- README_GENERATOR.md     รายละเอียด generate_patient_dialysis.py (hemo_gen)
+- HEMO_COMPLETE_SESSION_SPEC.md   สเปกข้อมูล 1 session ครบชุด
+
+================================================================================
+A) ลำดับรัน seed เข้า DB (แนะนำ)
+================================================================================
+
+1) Core (ครั้งเดียว / หลัง reset DB):
+    run_agroup_hogwarts_core_seed.bat
+    → 00-Units, 01-Users, 05-Patients, 08-Sections, 09-ScheduleMeta,
+      10-ShiftMeta, 11-SectionSlotPatient ฯลฯ
+
+2) Generate SQL ชุด B (Python — ดูหัวข้อ B ด้านล่าง)
+
+3) โหลด C group (Stock — อุปกรณ์และวัสดุสิ้นเปลือง):
+    run_cgroup_stock_seed.bat
+    → C01-Equipments.sql (Id 1–9)
+    → C02-MedicalSupplies.sql (Id 1–13)
+    → C03-AutoStock-Equipments.sql (ชุด AutoStock อุปกรณ์)
+    → C04-AutoStock-MedicalSupplies.sql (ชุด AutoStock วัสดุ)
+
+4) โหลด B group:
+    run_bgroup_supplemental_seed.bat
+    → B01 → B02 → B07 → B03 → B04 → B05 → B06
+
+หมายเหตุ Shift menu (เพิ่มพนักงานลง shift):
+- 09-ScheduleMeta.sql และ 10-ShiftMeta.sql มี setval() หลัง INSERT Id manual
+  เพื่อไม่ให้ชน PK เมื่อ UI สร้าง ShiftMeta เดือนใหม่
+- ถ้า DB seed ไปก่อนแก้ไฟล์ ให้รัน setval ใน DB เอง (ดู FAQ ท้ายไฟล์)
+
+================================================================================
+B) generate_patient_dialysis.py — B01–B07 ครบชุด (แนะนำ)
 ================================================================================
 
 วัตถุประสงค์
 -----------
-สคริปต์ Python นี้ใช้ซ่อม/เติมแถว HemodialysisRecords (B03) เมื่อไฟล์ B03
-ถูกแก้เล่นจนพัง (ลบวันที่ ลบแถว ฯลฯ) โดยอิง slot ผู้ป่วย–section จาก
-11-SectionSlotPatient และเวลา section จาก 08 / 09
-
-โหมดเริ่มต้น (gap-fill) ไม่ได้ “สร้างทุกวันทำการย้อนหลังตั้งแต่ต้นไฟล์”
-เพราะ seed เดิมเว้นวันได้ — แต่จะ:
-  • ต่อคู่ (PatientId, SectionId): ดูวันที่มีแถวในไฟล์จริง
-  • เติมวันทำการที่หาย “ระหว่าง” สองวันนั้น ถ้าห่างกันไม่เกิน
-    --max-internal-gap-days (กันช่องว่างยาวผิดจริง / ไม่สร้างย้อนหลังมหาศาล)
-  • เติม “หาง” จากวันล่าสุดของคู่นั้น +1 ถึงวันปลายทาง (--to-date)
-
-โหมด tail (--mode tail): พฤติกรรมแบบเดิม — clone ทุกแถวของ “วันล่าสุดในไฟล์”
-แล้วต่อท้ายจนถึง to-date (ไม่ใช้ logic ช่องว่างต่อคู่)
+สร้างข้อมูลฟอกไตครบ 1 session ต่อรอบ (B01–B07) ตาม HEMO_COMPLETE_SESSION_SPEC.md
+อ่าน schedule จาก 05-Patients.sql, 08-Sections.sql, 11-SectionSlotPatient.sql
 
 ข้อกำหนด
 ---------
-- Python 3 (แนะนำ 3.10+)
-- รันจากโฟลเดอร์ที่มีไฟล์ seed ชุดนี้ (working directory = โฟลเดอร์โปรเจกต์)
+- Python 3.10+
+- รันจากโฟลเดอร์โปรเจกต์ (working directory = โฟลเดอร์ที่มีไฟล์ SQL)
+- Core seed + INIT ใน DB แล้ว (Medicines Espogen -234, Assessments ฯลฯ)
 
-ไฟล์ที่สคริปต์อ่าน (ค่าเริ่มต้น)
+คำสั่งหลัก — หลาย patient (30 คน)
 ---------------------------------
-- B03-HemodialysisRecords.sql     แหล่งข้อมูล baseline + ปลายทาง merge
-- 08-Sections.sql                 map เวลาเริ่ม -> ShiftSectionId
-- 09-ScheduleMeta.sql             เวลา section ต่อ unit (Hogwarts / Dark Arts)
-- 10-ShiftMeta.sql                ใช้เตือนความสอดคล้องเดือน (ไม่ block การ generate)
-- 11-SectionSlotPatient.sql       validate คู่ PatientId + SectionId
+    generate_all_patients.bat
+    generate_all_patients.bat --span 4m
+    generate_all_patients.bat --dry-run
 
-กฎการ generate (ตามที่ตั้งค่าไว้)
+หรือ:
+    python generate_patient_dialysis.py --generate-all --span today
+
+หลัง loop จะรันอัตโนมัติ: patch B03 → rebuild B05 → rebuild B04-all
+(ข้าม post-steps: --skip-post-steps)
+
+คำสั่ง — ทีละ 1 คน
+-------------------
+    python generate_patient_dialysis.py --list-patients
+    python generate_patient_dialysis.py --patient-id 6505315 --span today
+    python generate_patient_dialysis.py --patient-id 6455308 --span 4m
+    python generate_patient_dialysis.py --patient-id 6505315 --dry-run
+
+span: today | 2m | 4m | 6m  (เริ่ม 2025-08-01)
+
+คำสั่งซ่อม / rebuild (หลังมี B03)
 ---------------------------------
-- เวลาที่เขียนลง SQL เป็น UTC เสมอ
-- วันที่ปลายทางเมื่อใช้ --to-date today:
-  ใช้ timezone จาก --today-tz (ค่าเริ่มต้น: Asia/Bangkok)
-- ข้ามเฉพาะวันเสาร์–อาทิตย์ (วันทำการ = จันทร์–ศุกร์)
-- ไม่มีวันหยุดพิเศษใน logic นี้
+    python generate_patient_dialysis.py --patch-b03-weights
+    python generate_patient_dialysis.py --rebuild-b05
+    python generate_patient_dialysis.py --rebuild-b04-all
+    python generate_patient_dialysis.py --rebuild-b04
+    python generate_patient_dialysis.py --restore-b07 --patient-id 6505315
+    python generate_patient_dialysis.py --validate-b03
+
+ไฟล์ที่สร้าง
+------------
+B01-AvShunts.sql
+B02-DialysisPrescriptions.sql
+B07-MedicinePrescriptions.sql   (ก่อน B06 — FK PrescriptionId)
+B03-HemodialysisRecords.sql
+B04-DialysisRecords.sql
+B05-Assessment.sql
+B06-ExecutionRecords.sql
+
+State: .hemo_gen_state.json
+
+เริ่มใหม่ทั้งชุด (ก่อน generate-all)
+--------------------------------------
+    ลบ B01–B07 *.sql และ .hemo_gen_state.json แล้วรัน generate-all
+
+รายละเอียดเพิ่ม: README_GENERATOR.md
+
+================================================================================
+C-group) Stock — Equipments & MedicalSupplies
+================================================================================
+
+ไฟล์
+----
+C01-Equipments.sql              อุปกรณ์ 9 รายการ (Id 1–9)
+C02-MedicalSupplies.sql         ยาและวัสดุสิ้นเปลือง 13 รายการ (Id 1–13)
+C03-AutoStock-Equipments.sql    ชุด AutoStock อุปกรณ์ครบ 9 รายการ (StockType=3)
+C04-AutoStock-MedicalSupplies.sql ชุด AutoStock วัสดุครบ 13 รายการ (StockType=2)
+run_cgroup_stock_seed.bat       รัน C01 → C02 → C03 → C04
+
+คำสั่ง
+------
+    run_cgroup_stock_seed.bat
+
+ลำดับแนะนำ: รันหลัง run_agroup_hogwarts_core_seed.bat (ก่อนหรือหลัง B group ก็ได้)
+
+หมายเหตุ
+--------
+- Equipments / MedicalSupplies ใช้ Id บวก 1, 2, 3 … (C03/C04 อ้างอิง Id เหล่านี้)
+- AutoStock UnitId = -1 (Hogwarts), UUID ชุด C03/C04 คงที่ใน seed
+- field ที่ไม่มีข้อมูลจริง (Barcode, Note, Quantity ฯลฯ) ใส่ค่าสมมุติไว้แล้ว
+- รันซ้ำจะ error duplicate key — ลบแถว seed ก่อน re-seed
+- ถ้าเคย seed ด้วย Id ลบ (-501..-613) ให้ลบแถวเก่าก่อนรันชุดใหม่
+
+================================================================================
+C) generate_b03_incremental.py — เติมแค่ B03 (legacy)
+================================================================================
+
+ใช้เมื่อ: มี B03 seed อยู่แล้ว ต้องการซ่อม/เติมแถว HemodialysisRecords เท่านั้น
+ไม่สร้าง B04–B07 — ถ้าต้องการครบชุด ใช้ generate_patient_dialysis.py แทน
+
+โหมดเริ่มต้น (gap-fill):
+  • ต่อคู่ (PatientId, SectionId) จาก 11-SectionSlotPatient
+  • เติมวันทำการที่หายระหว่างสองวันที่มีแถว (จำกัด --max-internal-gap-days)
+  • เติมหางจากวันล่าสุดของคู่นั้น +1 ถึง --to-date
+
+โหมด tail (--mode tail): clone ทุกแถวของวันล่าสุดแล้วต่อท้าย
+
+ไฟล์ที่อ่าน (ค่าเริ่มต้น)
+-------------------------
+- B03-HemodialysisRecords.sql
+- 08-Sections.sql
+- 09-ScheduleMeta.sql
+- 10-ShiftMeta.sql
+- 11-SectionSlotPatient.sql
 
 คำสั่งที่ใช้บ่อย
 ----------------
-รันแบบเริ่มต้น (gap-fill ถึง today ตาม Asia/Bangkok + merge เข้า B03 + ลบ incremental):
     python generate_b03_incremental.py
-
-กำหนด timezone สำหรับ today (เช่น UTC):
-    python generate_b03_incremental.py --today-tz UTC
-
-ระบุวันปลายทางเอง (ยัง merge เข้า B03 ตามเดิม):
     python generate_b03_incremental.py --to-date 2026-04-30
-
-สร้างไฟล์ incremental อย่างเดียว ไม่ merge เข้า B03:
     python generate_b03_incremental.py --no-merge-into-base
-
-ขยายแบบเดิม (clone วันล่าสุดทั้งก้อน):
     python generate_b03_incremental.py --mode tail
-
-จำกัดความยาวช่องว่างที่ยอมเติมระหว่างสองวันที่มีข้อมูล (ค่าเริ่มต้น 90 วันปฏิทิน):
     python generate_b03_incremental.py --max-internal-gap-days 45
 
-ยอมเติมช่องว่างยาวไม่จำกัด (ระวังแถวพุ่งถ้า seed เว้นช่วงยาว):
-    python generate_b03_incremental.py --max-internal-gap-days 0
+หลัง merge เข้า B03 แล้ว รัน run_bgroup_supplemental_seed.bat (หรือเฉพาะ B03 ใน bat)
 
-merge แล้วแต่เก็บไฟล์ incremental ไว้ตรวจสอบ:
-    python generate_b03_incremental.py --keep-incremental-file
+FAQ gap-fill: ดูหมายเหตุเดิมด้านล่าง (ทำไมยังสร้างแถวทั้งที่วันล่าสุดเป็นวันนี้)
 
-เปลี่ยนชื่อไฟล์ input/output (กรณี path พิเศษ):
-    python generate_b03_incremental.py --input MyB03.sql --output MyInc.sql
+================================================================================
+FAQ
+================================================================================
 
-หลัง generate เสร็จ — รัน seed เข้า DB
---------------------------------------
-สคริปต์ bat เดิมรันเฉพาะ B03-HemodialysisRecords.sql ดังนั้นหลัง merge แล้วให้รัน:
-    run_bgroup_supplemental_seed.bat
+ทำไมรัน generate_b03_incremental แล้วยังสร้างแถว ทั้งที่วันล่าสุดเป็นวันนี้?
+  gap-fill แยกต่อคู่ (PatientId, ShiftSectionId) ไม่ใช่แค่วันล่าสุดของทั้งไฟล์
 
-ถ้าใช้ --no-merge-into-base ต้องเอา SQL จากไฟล์ incremental ไปรันเองหรือ merge เข้า B03 ก่อน
-จึงจะสอดคล้องกับ bat เดิม
+กดเพิ่มพนักงานในเมนู Shift แล้ว error PK_ShiftMeta?
+  สาเหตุ: seed ใส่ ShiftMeta Id=1,2 แต่ sequence ไม่ถูก sync
+  แก้ใน DB (ครั้งเดียว):
+    SELECT setval(pg_get_serial_sequence('local."ShiftMeta"', 'Id'),
+      COALESCE((SELECT MAX("Id") FROM local."ShiftMeta"), 1));
+    SELECT setval(pg_get_serial_sequence('local."ScheduleMeta"', 'Id'),
+      COALESCE((SELECT MAX("Id") FROM local."ScheduleMeta"), 1));
+  หรือ re-run 09-ScheduleMeta.sql + 10-ShiftMeta.sql (ถ้ายังไม่มีแถวซ้ำ)
 
-FAQ — ทำไมรันแล้วยังสร้างแถว ทั้งที่วันล่าสุดในไฟล์เป็นวันนี้แล้ว?
-------------------------------------------------------------------
-โหมด gap-fill ไม่ได้ดูแค่ “วันล่าสุดของทั้งไฟล์” แต่แยกต่อคู่
-(PatientId, ShiftSectionId) ตาม 11-SectionSlotPatient:
-- ผู้ป่วยคนเดียวอาจมีหลาย section; บางคู่ยังมีแถวล่าสุดก่อน to-date
-  ระบบจึงเติม “หาง” ของคู่นั้นจนถึงวันปลายทาง
-- ถ้ามีช่องว่างวันทำการระหว่างสองวันที่มีข้อมูลของคู่เดียวกัน (และอยู่ใน
-  --max-internal-gap-days) ก็จะถูกเติม
-สคริปต์จะพิมพ์บรรทัดสรุปตัวเลขเมื่อมีแถวถูกสร้าง ช่วยให้เห็นว่าเกิดจากหางหรือช่องว่างระหว่าง anchor
+รัน generate แล้วไม่มี B07?
+  รัน: python generate_patient_dialysis.py --restore-b07 --patient-id <id>
+  หรือลบ .hemo_gen_state.json แล้ว generate ใหม่
 
-หมายเหตุ
----------
-- คู่ (patient, section) ที่ไม่เคยมีแถวในไฟล์เลย จะไม่ถูก gap-fill (ไม่มี template)
-- Warning เรื่อง ShiftMeta เดือนไม่ตรง: เป็นการแจ้งเตือนเท่านั้น ไม่หยุดการ generate
-- รูปแบบแถวที่ merge จะจัดให้สอดคล้องกับแถวเดิมใน B03
-- บนบางเครื่อง Windows ที่ไม่มี timezone database:
-  ถ้า --today-tz เป็น Asia/Bangkok ระบบจะ fallback เป็น UTC+7 ให้อัตโนมัติ
+generate-all vs generate ทีละคน?
+  generate-all = วนทุกคนใน 05-Patients.sql + post-steps
+  รันซ้ำคนเดิม = append ซ้ำ — ระวัง
+
+Timezone / วันทำการ (b03 incremental):
+- เวลาใน SQL เป็น UTC
+- --to-date today ใช้ --today-tz (default Asia/Bangkok)
+- ข้ามเสาร์–อาทิตย์
 
 ================================================================================

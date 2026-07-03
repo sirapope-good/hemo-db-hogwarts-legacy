@@ -15,3 +15,9 @@ VALUES
     true, 1, 'Dark Arts', 
     '12:00:00', '16:00:00', '20:00:00', NULL, NULL, NULL
 );
+
+-- หลัง INSERT Id แบบ manual ต้อง sync identity sequence (มิฉะนั้น UI สร้าง ShiftMeta ใหม่จะชน PK)
+SELECT setval(
+    pg_get_serial_sequence('local."ScheduleMeta"', 'Id'),
+    COALESCE((SELECT MAX("Id") FROM local."ScheduleMeta"), 1)
+);

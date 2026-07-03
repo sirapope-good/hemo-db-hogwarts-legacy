@@ -49,6 +49,16 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="ตรวจ Pre/Post/Last/UFGoal ใน B03 (ไม่แก้ไฟล์)",
     )
+    p.add_argument(
+        "--generate-all",
+        action="store_true",
+        help="สร้าง B01–B07 ทุกคนใน 05-Patients.sql แล้ว patch B03 / rebuild B05 / B04-all",
+    )
+    p.add_argument(
+        "--skip-post-steps",
+        action="store_true",
+        help="ใช้กับ --generate-all: ไม่รัน patch-b03 / rebuild-b05 / rebuild-b04-all หลัง loop",
+    )
     return p
 
 
@@ -115,8 +125,28 @@ def main(argv: list[str] | None = None) -> int:
             print("restore B07: ไม่มีข้อมูลใน state — ระบุ --patient-id หรือรัน generate ก่อน")
         return 0
 
+    if args.generate_all:
+        from hemo_gen.generate_all import generate_all_patients
+
+        summary = generate_all_patients(
+            base,
+            span=args.span,
+            dry_run=args.dry_run,
+            force_b01=args.force_b01,
+            post_steps=not args.skip_post_steps,
+        )
+        print(
+            f"\nสรุป generate-all: ok={summary.patients} sessions={summary.sessions} "
+            f"failed={len(summary.failed or [])}"
+        )
+        if summary.failed:
+            for pid, msg in summary.failed:
+                print(f"  fail {pid}: {msg}")
+            return 1
+        return 0
+
     if not args.patient_id:
-        print("ต้องระบุ --patient-id หรือใช้ --list-patients")
+        print("ต้องระบุ --patient-id, --generate-all หรือใช้ --list-patients")
         return 1
 
     start = first_business_on_or_after(START_DATE)

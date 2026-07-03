@@ -1,0 +1,72 @@
+@echo off
+SETLOCAL EnableDelayedExpansion
+cd /d "%~dp0"
+
+set "SPAN=today"
+set "DRY="
+set "SKIP_POST="
+set "FORCE_B01="
+
+:parse_args
+if "%~1"=="" goto run
+if /I "%~1"=="--span" (
+    set "SPAN=%~2"
+    shift
+    shift
+    goto parse_args
+)
+if /I "%~1"=="--dry-run" (
+    set "DRY=--dry-run"
+    shift
+    goto parse_args
+)
+if /I "%~1"=="--skip-post-steps" (
+    set "SKIP_POST=--skip-post-steps"
+    shift
+    goto parse_args
+)
+if /I "%~1"=="--force-b01" (
+    set "FORCE_B01=--force-b01"
+    shift
+    goto parse_args
+)
+if /I "%~1"=="--help" goto help
+echo Unknown option: %~1
+goto help
+
+:help
+echo.
+echo Usage: generate_all_patients.bat [options]
+echo.
+echo   --span today^|2m^|4m^|6m     default: today
+echo   --dry-run                   สรุปอย่างเดียว ไม่เขียน SQL
+echo   --skip-post-steps           ไม่รัน patch B03 / rebuild B05 / B04-all
+echo   --force-b01                 เขียน B01 ซ้ำทุกคน
+echo.
+echo หลัง generate สำเร็จ รัน: run_bgroup_supplemental_seed.bat
+echo.
+exit /b 0
+
+:run
+echo ============================================================
+echo   HEMO - Generate B01-B07 for ALL patients (05-Patients.sql)
+echo   span=%SPAN%  dry_run=%DRY%  skip_post=%SKIP_POST%
+echo ============================================================
+echo.
+
+python generate_patient_dialysis.py --generate-all --span %SPAN% %DRY% %SKIP_POST% %FORCE_B01%
+set "RC=%ERRORLEVEL%"
+
+echo.
+if not "%RC%"=="0" (
+    echo [FAILED] exit code %RC%
+    exit /b %RC%
+)
+
+echo [OK] generate-all completed.
+if defined DRY (
+    echo dry-run only — ไม่ได้เขียนไฟล์
+) else (
+    echo ขั้นถัดไป: run_bgroup_supplemental_seed.bat
+)
+exit /b 0

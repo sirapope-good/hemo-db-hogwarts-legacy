@@ -12,21 +12,27 @@ _ZERO_INSTEAD_OF_NULL = (
     "Dehydration_WheelchairWeight",
     "Dehydration_ClothWeight",
     "Dehydration_FoodDrinkWeight",
+    "Dehydration_PostWheelchairWeight",
+)
+_NULL_INSTEAD_OF_ZERO = (
+    "Dehydration_BloodTransfusion",
+    "Dehydration_ExtraFluid",
 )
 _EMPTY_UUID_ARRAY = "'{}'::uuid[]"
 _STAFF_COL = "StaffAllocation"
 _NURSES_COL = "NursesInShift"
 
 
-def _normalize_zero_weights(fields: list[str], idx: dict[str, int]) -> bool:
+def _normalize_dehydration_defaults(fields: list[str], idx: dict[str, int]) -> bool:
     changed = False
     for col in _ZERO_INSTEAD_OF_NULL:
         if fields[idx[col]].upper() == "NULL":
             fields[idx[col]] = "0"
             changed = True
-    if fields[idx["Dehydration_PostWheelchairWeight"]] == "0":
-        fields[idx["Dehydration_PostWheelchairWeight"]] = "NULL"
-        changed = True
+    for col in _NULL_INSTEAD_OF_ZERO:
+        if fields[idx[col]] == "0":
+            fields[idx[col]] = "NULL"
+            changed = True
     return changed
 
 
@@ -62,7 +68,7 @@ def _patch_tuple_body(body: str) -> str:
         fields.insert(idx[_NURSES_COL] + 1, _EMPTY_UUID_ARRAY)
         changed = True
 
-    changed = _normalize_zero_weights(fields, idx) or changed
+    changed = _normalize_dehydration_defaults(fields, idx) or changed
     changed = _ensure_staff_allocation(fields, idx) or changed
 
     def _float(name: str) -> float | None:
