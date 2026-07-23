@@ -117,6 +117,8 @@ hemo_gen/
 |--------|---------|
 | `syntax error at or near "Id"` ใน B01/B02/B03 | ไฟล์ seed ถูก merge ผิด — คืนจาก `290426_backup/` แล้วรัน generator ใหม่ |
 | `duplicate key` B07 | รัน B07 ซ้ำใน DB แล้ว — ลบแถว `MedicinePrescriptions` ที่ซ้ำ หรือข้าม B07 ใน bat ถ้าโหลดแล้ว |
+| `null value in column "RegimenLineId"` (B07) | schema ใหม่บังคับ `RegimenLineId` — ใส่ค่า = `Id` (course ใหม่) แล้ว regenerate / แก้ B07 |
+| FK B06 → MedicinePrescriptions | มักเพราะ B07 ล้มก่อน — แก้ B07 ให้ผ่านก่อน แล้วรัน B07 → B06 |
 | FK B05/B06 ล้มเหลว | มักเพราะ B03 ยังไม่ผ่าน — แก้ B01–B04 ก่อน แล้วรัน B03 → B05 → B06 |
 | รัน generate แล้วไม่มี `B07-MedicinePrescriptions.sql` | `.hemo_gen_state.json` ยังจำ UUID จากรันก่อน — รัน `--restore-b07` หรือลบ key `medicine_prescription_ids` ใน state แล้ว generate ใหม่ |
 | Hemosheet ต้นๆมี DialysisRecord แต่รอบหลังไม่มี | B03 **seed** ไม่มี B04 — รัน `--rebuild-b04` หลัง B03 seed โหลดแล้ว |

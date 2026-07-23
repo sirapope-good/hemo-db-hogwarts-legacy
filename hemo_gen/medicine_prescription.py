@@ -15,6 +15,8 @@ B07_COLUMNS = [
     "MedicineId", "Route", "DosePerTarget", "TargetLoopAmount", "Frequency",
     "AdministerDate", "InitSessionCount", "NonDialysis", "LimitDose",
     "HospitalName", "OverrideDoseAmount", "OverrideUnit", "Note", "ExpireDate",
+    # Backend: RegimenLineId NOT NULL — new course defaults to Id (same as migration backfill).
+    "RegimenLineId",
 ]
 
 
@@ -64,5 +66,6 @@ def build_espogen_prescription(
         sql_quote(cat["override_unit"]),
         sql_quote("Hogwarts gen Espogen"),
         exp,
+        sql_quote(rx_id),  # RegimenLineId = Id for first course on this line
     ]
     return MedicinePrescriptionRow(id=rx_id, fields=fields)
