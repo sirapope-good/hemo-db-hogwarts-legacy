@@ -6,7 +6,15 @@ import datetime as dt
 import re
 from pathlib import Path
 
-from hemo_gen.config import B03_FILE, B06_FILE, B07_FILE, START_DATE, first_business_on_or_after
+from hemo_gen.config import (
+    B03_FILE,
+    B06_FILE,
+    B07_FILE,
+    START_DATE,
+    b_file,
+    first_business_on_or_after,
+    state_path,
+)
 from hemo_gen.medicine_prescription import B07_COLUMNS, build_espogen_prescription, load_medicine_catalog
 from hemo_gen.sql_io import append_rows, find_patient_uuid_in_file, iter_insert_blocks, split_fields, split_tuples
 from hemo_gen.state import GenState
@@ -71,10 +79,10 @@ def _last_cycle_end_date(b03_path: Path, patient_id: str) -> dt.date | None:
 
 def restore_b07(base: Path, patient_id: str | None = None) -> list[tuple[str, str, bool]]:
     """คืน [(patient_id, prescription_id, written)]"""
-    state = GenState.load(base / ".hemo_gen_state.json")
-    b07_path = base / B07_FILE
-    b03_path = base / B03_FILE
-    b06_path = base / B06_FILE
+    state = GenState.load(state_path(base))
+    b07_path = b_file(B07_FILE, base)
+    b03_path = b_file(B03_FILE, base)
+    b06_path = b_file(B06_FILE, base)
     catalog = load_medicine_catalog()
     results: list[tuple[str, str, bool]] = []
 
@@ -106,5 +114,5 @@ def restore_b07(base: Path, patient_id: str | None = None) -> list[tuple[str, st
         ps.medicine_prescription_ids["espogen"] = med_row.id
         results.append((pid, med_row.id, True))
 
-    state.save(base / ".hemo_gen_state.json")
+    state.save(state_path(base))
     return results

@@ -7,7 +7,7 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
-from hemo_gen.config import B03_FILE, B04_FILE
+from hemo_gen.config import B03_FILE, B04_FILE, b_file
 from hemo_gen.dialysis_records import B04_COLUMNS, build_dialysis_records
 from hemo_gen.session_builder import B03_COLUMNS, BuiltSession
 from hemo_gen.sql_io import append_rows, iter_insert_blocks, split_fields, split_tuples
@@ -116,8 +116,8 @@ def rebuild_b04(
     Returns (sessions_scanned, sessions_backfilled, b04_rows_added).
     replace_all=True ลบ B04 แล้วสร้างใหม่ทุกรอบ (ได้ NSS/Glucose ตาม generator ล่าสุด).
     """
-    b03_path = base_dir / B03_FILE
-    b04_path = base_dir / B04_FILE
+    b03_path = b_file(B03_FILE, base_dir)
+    b04_path = b_file(B04_FILE, base_dir)
     if replace_all and b04_path.exists():
         b04_path.unlink()
     have = _existing_hemo_ids(b04_path)

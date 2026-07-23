@@ -4,15 +4,15 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from hemo_gen.config import B03_FILE
+from hemo_gen.config import B03_FILE, b_file
 from hemo_gen.session_builder import B03_COLUMNS
 from hemo_gen.sql_io import iter_insert_blocks, split_fields, split_tuples
 
 
 def validate_b03(base_dir: Path, patient_id: str | None = None) -> tuple[int, int, list[str]]:
-    path = base_dir / B03_FILE
+    path = b_file(B03_FILE, base_dir)
     if not path.exists():
-        return 0, 0, [f"ไม่พบ {B03_FILE}"]
+        return 0, 0, [f"ไม่พบ {path}"]
 
     idx = {c: i for i, c in enumerate(B03_COLUMNS)}
     issues: list[str] = []

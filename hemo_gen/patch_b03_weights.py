@@ -4,7 +4,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from hemo_gen.config import B03_FILE
+from hemo_gen.config import B03_FILE, b_file
 from hemo_gen.session_builder import B03_COLUMNS
 from hemo_gen.sql_io import iter_insert_blocks, split_fields, split_tuples
 
@@ -99,7 +99,7 @@ def _patch_tuple_body(body: str) -> str:
 
 
 def patch_b03_weights(base_dir: Path) -> tuple[int, int]:
-    path = base_dir / B03_FILE
+    path = b_file(B03_FILE, base_dir)
     text = _insert_header_staff_allocation(path.read_text(encoding="utf-8"))
     patched = 0
     total = 0

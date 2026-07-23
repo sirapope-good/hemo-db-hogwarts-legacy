@@ -2,9 +2,16 @@ from __future__ import annotations
 
 import argparse
 import sys
-from pathlib import Path
 
-from hemo_gen.config import START_DATE, GenConfig, first_business_on_or_after, resolve_end_date
+from hemo_gen.config import (
+    PATIENTS_FILE,
+    START_DATE,
+    GenConfig,
+    a_file,
+    first_business_on_or_after,
+    repo_root,
+    resolve_end_date,
+)
 from hemo_gen.generator import run_generator
 from hemo_gen.patient_loader import load_patients
 
@@ -70,10 +77,10 @@ def main(argv: list[str] | None = None) -> int:
             pass
 
     args = build_parser().parse_args(argv)
-    base = Path.cwd()
+    base = repo_root()
 
     if args.list_patients:
-        for p in load_patients(base / "05-Patients.sql"):
+        for p in load_patients(a_file(PATIENTS_FILE, base)):
             print(f"{p.patient_id}\t{p.name}")
         return 0
 

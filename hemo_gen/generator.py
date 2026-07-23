@@ -23,8 +23,13 @@ from hemo_gen.config import (
     B07_FILE,
     CREATED_BY,
     GenConfig,
+    PATIENTS_FILE,
+    SLOT_FILE,
     START_DATE,
+    a_file,
+    b_file,
     first_business_on_or_after,
+    state_path,
 )
 from hemo_gen.dialysis_records import B04_COLUMNS, build_dialysis_records
 from hemo_gen.execution import B06_COLUMNS, build_medicine_execution
@@ -61,25 +66,25 @@ class GenResult:
 
 def run_generator(cfg: GenConfig) -> GenResult:
     rng = random.Random(cfg.seed)
-    base = cfg.base_dir
-    state = GenState.load(base / ".hemo_gen_state.json")
+    root = cfg.base_dir
+    state = GenState.load(state_path(root))
     ps = state.for_patient(cfg.patient_id)
 
-    patients = {p.patient_id: p for p in load_patients(base / "05-Patients.sql")}
+    patients = {p.patient_id: p for p in load_patients(a_file(PATIENTS_FILE, root))}
     if cfg.patient_id not in patients:
-        raise SystemExit(f"ไม่พบ PatientId {cfg.patient_id} ใน 05-Patients.sql")
+        raise SystemExit(f"ไม่พบ PatientId {cfg.patient_id} ใน {PATIENTS_FILE}")
     patient = patients[cfg.patient_id]
-    slots = load_slot_assignments(base / "11-SectionSlotPatient.sql", cfg.patient_id)
+    slots = load_slot_assignments(a_file(SLOT_FILE, root), cfg.patient_id)
     profile = build_profile(patient, slots, rng)
 
     result = GenResult(patient_id=cfg.patient_id)
-    b01_path = base / B01_FILE
-    b02_path = base / B02_FILE
-    b03_path = base / B03_FILE
-    b04_path = base / B04_FILE
-    b05_path = base / B05_FILE
-    b06_path = base / B06_FILE
-    b07_path = base / B07_FILE
+    b01_path = b_file(B01_FILE, root)
+    b02_path = b_file(B02_FILE, root)
+    b03_path = b_file(B03_FILE, root)
+    b04_path = b_file(B04_FILE, root)
+    b05_path = b_file(B05_FILE, root)
+    b06_path = b_file(B06_FILE, root)
+    b07_path = b_file(B07_FILE, root)
 
     treatment_no = max(
         ps.last_treatment_no,
@@ -207,6 +212,6 @@ def run_generator(cfg: GenConfig) -> GenResult:
     ps.sessions_on_current_rx = rx_mgr.sessions_on_rx
     ps.max_sessions_on_rx = rx_mgr.max_sessions
     ps.dialysis_prescription_count += result.b02_rows
-    state.save(base / ".hemo_gen_state.json")
+    state.save(state_path(root))
 
     return result

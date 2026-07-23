@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+*$py.class
+psql_log*.tmp
+*.incremental.sql
+.cursor/ace/
+scripts/db.env.bat

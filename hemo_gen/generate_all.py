@@ -5,7 +5,14 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from hemo_gen.config import START_DATE, GenConfig, first_business_on_or_after, resolve_end_date
+from hemo_gen.config import (
+    PATIENTS_FILE,
+    START_DATE,
+    GenConfig,
+    a_file,
+    first_business_on_or_after,
+    resolve_end_date,
+)
 from hemo_gen.generator import run_generator
 from hemo_gen.patient_loader import load_patients
 
@@ -24,9 +31,9 @@ def generate_all_patients(
     force_b01: bool = False,
     post_steps: bool = True,
 ) -> GenerateAllResult:
-    patients = load_patients(base / "05-Patients.sql")
+    patients = load_patients(a_file(PATIENTS_FILE, base))
     if not patients:
-        raise SystemExit("ไม่พบผู้ป่วยใน 05-Patients.sql")
+        raise SystemExit(f"ไม่พบผู้ป่วยใน {PATIENTS_FILE}")
 
     start = first_business_on_or_after(START_DATE)
     end = resolve_end_date(span, start, "Asia/Bangkok")

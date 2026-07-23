@@ -32,14 +32,46 @@ B05_FILE = "B05-Assessment.sql"
 B06_FILE = "B06-ExecutionRecords.sql"
 B07_FILE = "B07-MedicinePrescriptions.sql"
 
+PATIENTS_FILE = "05-Patients.sql"
+SLOT_FILE = "11-SectionSlotPatient.sql"
+
 STATE_FILE = ".hemo_gen_state.json"
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
 
 
+def repo_root() -> Path:
+    """Repo root (parent of hemo_gen/)."""
+    return Path(__file__).resolve().parent.parent
+
+
+def a_core_dir(root: Path | None = None) -> Path:
+    return (root or repo_root()) / "seeds" / "a_core"
+
+
+def b_sessions_dir(root: Path | None = None) -> Path:
+    return (root or repo_root()) / "seeds" / "b_sessions"
+
+
+def c_stock_dir(root: Path | None = None) -> Path:
+    return (root or repo_root()) / "seeds" / "c_stock"
+
+
+def state_path(root: Path | None = None) -> Path:
+    return (root or repo_root()) / STATE_FILE
+
+
+def a_file(name: str, root: Path | None = None) -> Path:
+    return a_core_dir(root) / name
+
+
+def b_file(name: str, root: Path | None = None) -> Path:
+    return b_sessions_dir(root) / name
+
+
 @dataclass(frozen=True)
 class GenConfig:
-    base_dir: Path
+    base_dir: Path  # repo root
     patient_id: str
     start_date: dt.date
     end_date: dt.date

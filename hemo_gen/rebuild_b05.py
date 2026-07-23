@@ -14,7 +14,7 @@ from hemo_gen.assessment import (
     build_pre_vital,
     load_assessment_map,
 )
-from hemo_gen.config import B03_FILE, B05_FILE
+from hemo_gen.config import B03_FILE, B05_FILE, b_file
 from hemo_gen.session_builder import B03_COLUMNS, BuiltSession
 from hemo_gen.sql_io import append_b05_bundle, iter_insert_blocks, split_fields, split_tuples
 
@@ -105,8 +105,8 @@ def _to_built(ref: _SessionRef, rng: random.Random) -> BuiltSession:
 
 
 def rebuild_b05(base_dir: Path, patient_id: str | None = None) -> tuple[int, int, int]:
-    b03_path = base_dir / B03_FILE
-    b05_path = base_dir / B05_FILE
+    b03_path = b_file(B03_FILE, base_dir)
+    b05_path = b_file(B05_FILE, base_dir)
     amap = load_assessment_map()
     pre_rows: list[list[str]] = []
     post_rows: list[list[str]] = []
