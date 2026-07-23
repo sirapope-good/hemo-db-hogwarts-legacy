@@ -1,5 +1,6 @@
 INSERT INTO local."Sections" 
 ("Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "UnitId", "StartTime")
+-- Unit -1 Hogwarts: 1-4 | Unit 1 Azkaban: 5-7
 VALUES 
 (1, '2026-02-11 02:18:04+00', '866dabc4-6501-44d2-a0e5-65da9c45a46e', '2026-02-11 02:18:33.660086+00', '866dabc4-6501-44d2-a0e5-65da9c45a46e', true, -1, '05:00:00'),
 (2, '2026-02-11 02:18:33.659965+00', '866dabc4-6501-44d2-a0e5-65da9c45a46e', '2026-02-11 02:18:33.659965+00', '866dabc4-6501-44d2-a0e5-65da9c45a46e', true, -1, '09:00:00'),

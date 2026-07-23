@@ -29,6 +29,7 @@ def generate_all_patients(
     span: str = "today",
     dry_run: bool = False,
     force_b01: bool = False,
+    force_meds: bool = False,
     post_steps: bool = True,
 ) -> GenerateAllResult:
     patients = load_patients(a_file(PATIENTS_FILE, base))
@@ -39,7 +40,11 @@ def generate_all_patients(
     end = resolve_end_date(span, start, "Asia/Bangkok")
     result = GenerateAllResult(failed=[])
 
-    print(f"generate-all: patients={len(patients)} span={span} ({start} .. {end}) dry_run={dry_run}")
+    print(
+        f"generate-all: patients={len(patients)} span={span} ({start} .. {end}) "
+        f"dry_run={dry_run}"
+        + ("  [today=through yesterday, leave today free]" if span == "today" else "")
+    )
 
     for i, patient in enumerate(patients, start=1):
         pid = patient.patient_id
@@ -53,6 +58,7 @@ def generate_all_patients(
             seed=seed,
             dry_run=dry_run,
             force_b01=force_b01,
+            force_meds=force_meds,
         )
         try:
             gen = run_generator(cfg)

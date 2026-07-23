@@ -5,8 +5,9 @@ import random
 import uuid
 
 from hemo_gen.config import CREATED_BY
+from hemo_gen.medicine_prescription import MedicinePrescriptionRow
 from hemo_gen.session_builder import BuiltSession
-from hemo_gen.sql_io import sql_bool, sql_nullable_str, sql_quote, to_sql_timestamp
+from hemo_gen.sql_io import sql_bool, sql_quote, to_sql_timestamp
 
 
 B06_COLUMNS = [
@@ -20,8 +21,10 @@ def build_medicine_execution(
     medicine_prescription_id: str,
     override_route: int,
     rng: random.Random,
+    *,
+    execute_chance: float = 0.55,
 ) -> list[str] | None:
-    if rng.random() > 0.55:
+    if execute_chance <= 0 or rng.random() > execute_chance:
         return None
     exec_time = session.cycle_start + dt.timedelta(
         hours=rng.randint(2, 3), minutes=rng.randint(0, 45)
@@ -44,3 +47,25 @@ def build_medicine_execution(
         "1",
         "NULL",
     ]
+
+
+def build_session_executions(
+    session: BuiltSession,
+    prescriptions: list[MedicinePrescriptionRow],
+    rng: random.Random,
+) -> list[list[str]]:
+    """Create 0–n execution rows for in-center (NonDialysis=false) meds only."""
+    rows: list[list[str]] = []
+    for rx in prescriptions:
+        if rx.non_dialysis:
+            continue
+        row = build_medicine_execution(
+            session,
+            rx.id,
+            rx.route,
+            rng,
+            execute_chance=rx.execute_chance,
+        )
+        if row:
+            rows.append(row)
+    return rows

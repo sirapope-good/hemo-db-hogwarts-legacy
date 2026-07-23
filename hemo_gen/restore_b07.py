@@ -1,21 +1,17 @@
-"""เขียน B07 จาก state / B06 เมื่อไฟล์ B07 หายแต่ยังมี PrescriptionId ใน state หรือ B06."""
+"""เขียน B07 จาก state เมื่อไฟล์หาย — ใช้ multi-med templates (ExpireDate NULL)."""
 
 from __future__ import annotations
 
 import datetime as dt
-import re
 from pathlib import Path
 
-from hemo_gen.config import (
-    B03_FILE,
-    B06_FILE,
-    B07_FILE,
-    START_DATE,
-    b_file,
-    first_business_on_or_after,
-    state_path,
+from hemo_gen.config import B03_FILE, B06_FILE, B07_FILE, START_DATE, b_file, first_business_on_or_after, state_path
+from hemo_gen.medicine_prescription import (
+    B07_COLUMNS,
+    build_medicine_prescription,
+    load_medicine_catalog,
+    load_templates,
 )
-from hemo_gen.medicine_prescription import B07_COLUMNS, build_espogen_prescription, load_medicine_catalog
 from hemo_gen.sql_io import append_rows, find_patient_uuid_in_file, iter_insert_blocks, split_fields, split_tuples
 from hemo_gen.state import GenState
 
@@ -54,36 +50,38 @@ def _prescription_id_from_b06(b06_path: Path, patient_id: str) -> str | None:
     return None
 
 
-def _last_cycle_end_date(b03_path: Path, patient_id: str) -> dt.date | None:
+def _last_cycle_start(b03_path: Path, patient_id: str) -> dt.datetime | None:
     if not b03_path.exists():
         return None
-    best: dt.date | None = None
+    best: dt.datetime | None = None
     text = b03_path.read_text(encoding="utf-8")
     for columns, values in iter_insert_blocks(text, "HemodialysisRecords"):
-        if "PatientId" not in columns or "CycleEndTime" not in columns:
+        if "PatientId" not in columns or "CycleStartTime" not in columns:
             continue
         p_idx = columns.index("PatientId")
-        c_idx = columns.index("CycleEndTime")
+        c_idx = columns.index("CycleStartTime")
         for body in split_tuples(values):
             fields = split_fields(body)
             if fields[p_idx].strip("'") != patient_id:
                 continue
             raw = fields[c_idx].strip("'")
-            m = re.match(r"(\d{4}-\d{2}-\d{2})", raw)
-            if m:
-                d = dt.date.fromisoformat(m.group(1))
-                if best is None or d > best:
-                    best = d
+            try:
+                ts = dt.datetime.fromisoformat(raw.replace("+00", "+00:00"))
+            except ValueError:
+                continue
+            if best is None or ts < best:
+                best = ts
     return best
 
 
 def restore_b07(base: Path, patient_id: str | None = None) -> list[tuple[str, str, bool]]:
-    """คืน [(patient_id, prescription_id, written)]"""
+    """คืน [(patient_id, prescription_id, written)] — ใช้ template จาก state keys."""
     state = GenState.load(state_path(base))
     b07_path = b_file(B07_FILE, base)
     b03_path = b_file(B03_FILE, base)
     b06_path = b_file(B06_FILE, base)
     catalog = load_medicine_catalog()
+    templates = load_templates(catalog)
     results: list[tuple[str, str, bool]] = []
 
     patient_ids = [patient_id] if patient_id else list(state.patients.keys())
@@ -91,28 +89,33 @@ def restore_b07(base: Path, patient_id: str | None = None) -> list[tuple[str, st
         existing = find_patient_uuid_in_file(b07_path, "MedicinePrescriptions", "PatientId", pid)
         if existing:
             ps = state.for_patient(pid)
-            ps.medicine_prescription_ids["espogen"] = existing
+            if not ps.medicine_prescription_ids:
+                ps.medicine_prescription_ids["espogen"] = existing
             results.append((pid, existing, False))
             continue
 
         ps = state.for_patient(pid)
-        rx_id = ps.medicine_prescription_ids.get("espogen") or _prescription_id_from_b06(b06_path, pid)
-        administer = dt.datetime.combine(
+        admin = _last_cycle_start(b03_path, pid) or dt.datetime.combine(
             first_business_on_or_after(START_DATE),
             dt.time(5, 0),
             tzinfo=dt.timezone.utc,
         )
-        expire = _last_cycle_end_date(b03_path, pid) or dt.date.today()
-        med_row = build_espogen_prescription(
-            pid,
-            administer,
-            expire,
-            catalog,
-            prescription_id=rx_id,
-        )
-        append_rows(b07_path, "MedicinePrescriptions", B07_COLUMNS, [med_row.fields], "hemo_gen restore B07")
-        ps.medicine_prescription_ids["espogen"] = med_row.id
-        results.append((pid, med_row.id, True))
+        keys = list(ps.medicine_prescription_ids.keys()) or ["espogen"]
+        for key in keys:
+            tmpl = templates.get(key) or templates["espogen"]
+            rx_id = ps.medicine_prescription_ids.get(key)
+            if key == "espogen" and not rx_id:
+                rx_id = _prescription_id_from_b06(b06_path, pid)
+            row = build_medicine_prescription(
+                tmpl,
+                pid,
+                admin,
+                prescription_id=rx_id,
+                note=f"Hogwarts restore {tmpl.name}",
+            )
+            append_rows(b07_path, "MedicinePrescriptions", B07_COLUMNS, [row.fields], "hemo_gen restore B07")
+            ps.medicine_prescription_ids[key] = row.id
+            results.append((pid, row.id, True))
 
     state.save(state_path(base))
     return results

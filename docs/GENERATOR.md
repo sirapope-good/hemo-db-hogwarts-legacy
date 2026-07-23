@@ -33,6 +33,8 @@ python generate_patient_dialysis.py --rebuild-b04
 python generate_patient_dialysis.py --rebuild-b04-all
 python generate_patient_dialysis.py --rebuild-b05
 python generate_patient_dialysis.py --restore-b07 --patient-id 6505315
+python generate_patient_dialysis.py --rebuild-b07
+python generate_patient_dialysis.py --rebuild-b07 --patient-id 6505315 --dry-run
 python generate_patient_dialysis.py --validate-b03
 ```
 
@@ -40,8 +42,10 @@ python generate_patient_dialysis.py --validate-b03
 |-------------|-----|
 | `--patient-id` | บังคับเมื่อ generate 1 คน (หรือใช้ `--generate-all`) |
 | `--generate-all` | สร้าง B01–B07 ทุกคนใน `seeds/a_core/05-Patients.sql` |
+| `--force-meds` | วางแผนยาชุดใหม่ต่อคน (ESA/iron/oral) |
+| `--rebuild-b07` | เขียน `B07` ทั้งไฟล์ใหม่ — multi-med, `ExpireDate=NULL` |
 | `--skip-post-steps` | กับ `--generate-all`: ข้าม patch B03 / rebuild B05 / B04-all |
-| `--span` | `2m` \| `4m` \| `6m` \| `today` (default) |
+| `--span` | `2m` \| `4m` \| `6m` \| `today` — **today = through yesterday** (วันนี้เว้นว่างให้เล่นต่อ) |
 | `--dry-run` | พิมพ์สรุป ไม่เขียน SQL |
 | `--force-b01` | เขียน AvShunt ซ้ำแม้มี patient แล้ว |
 

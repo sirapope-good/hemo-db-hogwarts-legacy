@@ -1,303 +1,575 @@
 {
   "patients": {
     "49082/54": {
-      "last_treatment_no": 82,
-      "last_session_date": "2026-06-15",
-      "dialysis_prescription_count": 26,
-      "sessions_on_current_rx": 1,
-      "max_sessions_on_rx": 4,
+      "last_treatment_no": 87,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 28,
+      "sessions_on_current_rx": 2,
+      "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
-        "espogen": "575a1e00-4004-4688-add1-ca3bc9ebc02e"
+        "eprex": "98ba363f-c2c2-4832-a1d1-00e02a60dbad",
+        "iron_sucrose": "843f1af9-0e2f-4793-b075-0fd543d2d1fa",
+        "sevelamer": "ad4751a9-bc82-45fa-999c-faba5cbb4a48"
       }
     },
     "213860": {
-      "last_treatment_no": 88,
-      "last_session_date": "2026-06-08",
-      "dialysis_prescription_count": 27,
+      "last_treatment_no": 95,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 30,
       "sessions_on_current_rx": 3,
-      "max_sessions_on_rx": 3,
+      "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "db38be6d-79e3-45c9-9bce-332cc350f258"
+        "eprex": "084e19ca-fdda-4896-b87a-1c988eefeafc",
+        "iron_sucrose": "028298ee-312c-4acf-a709-b85bdf6dc907",
+        "heparin": "65330cb8-d5d8-4790-908b-dfd1a58ce183",
+        "calcitriol": "05b18ff9-3c1e-4122-b31a-cd5644a24b45"
       }
     },
     "48324": {
-      "last_treatment_no": 107,
-      "last_session_date": "2026-06-16",
-      "dialysis_prescription_count": 32,
-      "sessions_on_current_rx": 3,
+      "last_treatment_no": 112,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 35,
+      "sessions_on_current_rx": 1,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "8c25fc64-5773-42f3-8844-7094a4780af8"
+        "binocrit": "9c6f77cc-f688-4f99-a12d-643fbfa7be6e",
+        "iron_sucrose": "bdf1a081-92ea-437d-9bed-6cbd978ca9a4",
+        "sevelamer": "af235e9f-e30a-4cf1-8244-d99749f68522"
       }
     },
     "670001117": {
-      "last_treatment_no": 93,
-      "last_session_date": "2026-06-16",
-      "dialysis_prescription_count": 29,
-      "sessions_on_current_rx": 2,
-      "max_sessions_on_rx": 4,
+      "last_treatment_no": 99,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 32,
+      "sessions_on_current_rx": 1,
+      "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
-        "espogen": "72aeb296-59b3-423f-b901-aa93b6bebcb8"
+        "espogen": "0473c6f9-2b0d-4670-8553-9c9e419183ed",
+        "heparin": "dc95cae6-d504-4fc5-8bd2-359eed701e84",
+        "sevelamer": "ea383d48-a334-4229-bb41-091d7ad4af0c"
       }
     },
     "6802740": {
-      "last_treatment_no": 91,
-      "last_session_date": "2026-06-15",
-      "dialysis_prescription_count": 27,
-      "sessions_on_current_rx": 3,
+      "last_treatment_no": 97,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 30,
+      "sessions_on_current_rx": 1,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "6d3ff704-ac1b-4e12-8ab6-07b4756199c2"
+        "binocrit": "f4e3910b-c052-411f-b488-3e07eb54d993",
+        "iron_sucrose": "2b87372a-0449-4ae7-84a1-3e6462b6d4fa",
+        "heparin": "2f77cd8e-9f5f-4744-8cd5-5cb69c770f0a",
+        "amlodipine": "ea60e512-4830-45c3-9ace-62d37b8f693c"
       }
     },
     "6505315": {
-      "last_treatment_no": 99,
-      "last_session_date": "2026-06-11",
-      "dialysis_prescription_count": 29,
+      "last_treatment_no": 103,
+      "last_session_date": "2026-07-13",
+      "dialysis_prescription_count": 31,
       "sessions_on_current_rx": 1,
-      "max_sessions_on_rx": 4,
+      "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
-        "espogen": "ca16b2d9-a5ae-461a-93ba-d71d3b0058e0"
+        "eprex": "fe0ab65d-e3a2-464e-b961-d5a7678d691c",
+        "ferric_carboxymaltose": "b923ad35-1e87-4fd7-8dfc-effbe8818da5",
+        "amlodipine": "f27a0507-b0a0-4d54-93be-60c892f0299e",
+        "folic_acid": "044c7bd2-0766-48be-9d61-dce34f3739ed"
       }
     },
     "6455308": {
-      "last_treatment_no": 96,
-      "last_session_date": "2026-06-15",
-      "dialysis_prescription_count": 29,
-      "sessions_on_current_rx": 4,
+      "last_treatment_no": 100,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 31,
+      "sessions_on_current_rx": 3,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "7ace8640-fbdf-4d66-9b77-47b2f79056f8"
+        "binocrit": "382013dc-69df-4443-b47b-17264ec1f985",
+        "heparin": "f38d85f3-05f0-4f55-a49c-992097471254",
+        "calcium_carbonate": "decd56e7-5ce0-4038-98a2-8c15a1a3d57f"
       }
     },
     "6602502": {
-      "last_treatment_no": 85,
-      "last_session_date": "2026-06-15",
-      "dialysis_prescription_count": 26,
-      "sessions_on_current_rx": 2,
+      "last_treatment_no": 90,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 28,
+      "sessions_on_current_rx": 3,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "bd38a876-02e3-49dd-a3b8-de3ef0d52095"
+        "espogen": "e45fdeb6-391e-4eb0-a972-71d26a2b703d",
+        "calcium_carbonate": "bc22f86a-3ffb-4800-a644-5a30c63794c7"
       }
     },
     "6603132": {
-      "last_treatment_no": 95,
-      "last_session_date": "2026-06-15",
-      "dialysis_prescription_count": 28,
-      "sessions_on_current_rx": 2,
-      "max_sessions_on_rx": 3,
+      "last_treatment_no": 101,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 31,
+      "sessions_on_current_rx": 1,
+      "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "074bd5a4-690a-4466-9795-15ee6e516b19"
+        "binocrit": "34cf3a2b-e74b-4606-8c63-43903bfbba7a",
+        "calcitriol": "45ccbf05-6bd5-4629-ae13-b43a2696fea6",
+        "amlodipine": "f7fe959f-7e47-48cb-8a37-53afb2a8839a"
       }
     },
     "5333974": {
-      "last_treatment_no": 91,
-      "last_session_date": "2026-06-11",
-      "dialysis_prescription_count": 28,
-      "sessions_on_current_rx": 3,
+      "last_treatment_no": 97,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 31,
+      "sessions_on_current_rx": 1,
       "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
-        "espogen": "68ff2fc5-2e4b-425a-b2b8-25f2c507157a"
+        "eprex": "903abacc-a289-47d0-bea0-cba95a55944b",
+        "ferric_carboxymaltose": "9434d726-a821-4632-b2f3-03cd60000baa",
+        "folic_acid": "ff05ad56-eaac-491b-bdc8-22b2cecae2d5"
       }
     },
     "6521515": {
-      "last_treatment_no": 91,
-      "last_session_date": "2026-06-16",
-      "dialysis_prescription_count": 26,
-      "sessions_on_current_rx": 1,
+      "last_treatment_no": 94,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 27,
+      "sessions_on_current_rx": 4,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "3def01e2-f002-4400-8930-5d81b2312698"
+        "binocrit": "66c3e583-602b-4163-b0c1-50dc4b05fcb8",
+        "iron_sucrose": "f0d7bd40-dd58-4aa1-bcb4-9587782a7cdb",
+        "amlodipine": "2b7050d2-a1ce-42a0-99c9-1e17eb286c51"
       }
     },
     "6521637": {
-      "last_treatment_no": 94,
-      "last_session_date": "2026-06-04",
-      "dialysis_prescription_count": 29,
+      "last_treatment_no": 101,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 32,
       "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "9d2c038a-3a6e-4a7b-bcb2-016dcaa720d4"
+        "binocrit": "44657a25-0dfa-45ad-ab4f-c1b353747da9",
+        "ferric_carboxymaltose": "344e11a7-5662-489d-870b-9c877828b6d3",
+        "heparin": "4a9770b0-8b9f-4108-80bb-695cb645aa9d",
+        "sevelamer": "fd97c9cd-b7bc-4a1c-82e0-1d474226eb24",
+        "calcitriol": "27954c19-a319-4cf1-81df-f6f50d5cfd49"
       }
     },
     "6508733": {
-      "last_treatment_no": 89,
-      "last_session_date": "2026-06-15",
-      "dialysis_prescription_count": 27,
+      "last_treatment_no": 96,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 30,
       "sessions_on_current_rx": 3,
-      "max_sessions_on_rx": 3,
+      "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "1a7296fc-3c6f-47e7-9eb1-1469dce2cd00"
+        "eprex": "8af4c64a-6f35-4ab8-8a97-970e498c40b3",
+        "ferric_carboxymaltose": "008dca45-2071-4ccc-8d01-631b7faec021",
+        "folic_acid": "b2a3d4c1-2779-4db2-a228-a7937c0e33c0"
       }
     },
     "6512620": {
-      "last_treatment_no": 104,
-      "last_session_date": "2026-06-15",
-      "dialysis_prescription_count": 32,
-      "sessions_on_current_rx": 2,
+      "last_treatment_no": 107,
+      "last_session_date": "2026-07-16",
+      "dialysis_prescription_count": 34,
+      "sessions_on_current_rx": 1,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "f5be5d51-ac6e-4d87-944d-4718f5d0f31a"
+        "eprex": "60d4710f-1b94-4ef9-8efc-3ecb12defa41",
+        "ferric_carboxymaltose": "fa2b3f31-2d32-43d4-874b-c9f1a0630a7d",
+        "heparin": "78bb4260-d3f8-442e-aee7-d3cd778174f5",
+        "sevelamer": "1a07f97b-ebab-4a57-89fc-cf59e04394d4"
       }
     },
     "6300865": {
-      "last_treatment_no": 101,
-      "last_session_date": "2026-06-16",
-      "dialysis_prescription_count": 30,
-      "sessions_on_current_rx": 4,
+      "last_treatment_no": 107,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 33,
+      "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "df956569-fab0-48c7-aa1e-663c0574ed42"
+        "eprex": "6454fd00-f8ed-464d-84b3-4171d8f2c0f0",
+        "ferric_carboxymaltose": "a767f860-a15a-4216-a8a9-305c29331771",
+        "heparin": "f7186a38-3e22-41a7-8977-a46f33984cde",
+        "calcitriol": "b648d895-0075-466f-bfe6-c204c72e883e",
+        "amlodipine": "2d974155-0239-40a3-9764-eb175330c0ea"
       }
     },
     "6519635": {
-      "last_treatment_no": 90,
-      "last_session_date": "2026-06-15",
-      "dialysis_prescription_count": 27,
+      "last_treatment_no": 94,
+      "last_session_date": "2026-07-16",
+      "dialysis_prescription_count": 29,
       "sessions_on_current_rx": 3,
-      "max_sessions_on_rx": 4,
+      "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
-        "espogen": "61f85366-a078-4382-a203-b598f3a61776"
+        "recormon": "2be25194-567d-4e13-b836-51edf04bb425",
+        "ferric_carboxymaltose": "6cc1b936-6059-42c7-969e-b37065fde7d6",
+        "sevelamer": "34592a7d-ebc7-4e30-b434-155681b1fa69",
+        "calcium_carbonate": "3fd8c54e-41b6-4aa1-83ff-f9360065c680"
       }
     },
     "6800776": {
-      "last_treatment_no": 92,
-      "last_session_date": "2026-06-11",
-      "dialysis_prescription_count": 27,
+      "last_treatment_no": 99,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 30,
       "sessions_on_current_rx": 1,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "061a0277-3651-47e3-b218-c5e137197d22"
+        "recormon": "c1e496aa-2acb-4ad2-96c4-7ed626220a8d",
+        "iron_sucrose": "e36235e4-461b-46e9-8949-b4d7f58ce52f",
+        "heparin": "7245dc48-b8ca-4d48-b2bd-2b0301c5a23b",
+        "amlodipine": "a765314f-1374-4df9-bab4-a70fa591c50f"
       }
     },
     "6802616": {
-      "last_treatment_no": 92,
-      "last_session_date": "2026-06-15",
-      "dialysis_prescription_count": 27,
-      "sessions_on_current_rx": 3,
+      "last_treatment_no": 98,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 30,
+      "sessions_on_current_rx": 1,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "a70c7a32-2df5-4959-9171-8c480495f6fb"
+        "recormon": "a6d98866-873d-4673-a0f9-c92f5c0feba9",
+        "heparin": "f095b84d-058f-49cf-9b66-ad21320b2cd3",
+        "calcium_carbonate": "0dc52c93-8ce5-428b-bf59-b8c89edc164d",
+        "calcitriol": "c5236aaa-2a56-4bea-94be-265414b0ad5e"
       }
     },
     "6802588": {
-      "last_treatment_no": 92,
-      "last_session_date": "2026-06-16",
-      "dialysis_prescription_count": 28,
-      "sessions_on_current_rx": 4,
+      "last_treatment_no": 99,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 31,
+      "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "a1c93600-7d19-46bc-93e7-d0ef6d370f47"
+        "espogen": "932f3600-a60b-424d-8c04-e128841ab9d2",
+        "heparin": "243471df-d6bc-41b3-8bc8-24f53e7d8db3",
+        "amlodipine": "af3291b0-89d0-4c25-ab3f-7f4a69d34d27",
+        "sevelamer": "5a7d6e8d-da47-49ff-b590-78e6bdc239a2"
       }
     },
     "6411508": {
-      "last_treatment_no": 97,
-      "last_session_date": "2026-06-15",
-      "dialysis_prescription_count": 29,
-      "sessions_on_current_rx": 3,
-      "max_sessions_on_rx": 3,
+      "last_treatment_no": 102,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 32,
+      "sessions_on_current_rx": 1,
+      "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "5a85c7c1-ef80-4b8f-80e7-d868d8261200"
+        "nesp": "ac91a835-967f-4e56-a96e-1f3defdfb91b",
+        "ferric_carboxymaltose": "5b6f3c0b-2124-4cb1-8b38-a7da418ed18f",
+        "heparin": "42ea2f5c-6d96-4234-b479-6b15c3b743ba",
+        "amlodipine": "ed2de378-badc-4eaf-8540-cd32b8810afc"
       }
     },
     "6701952": {
-      "last_treatment_no": 89,
-      "last_session_date": "2026-06-15",
-      "dialysis_prescription_count": 27,
-      "sessions_on_current_rx": 3,
-      "max_sessions_on_rx": 4,
+      "last_treatment_no": 96,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 30,
+      "sessions_on_current_rx": 2,
+      "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
-        "espogen": "358558a9-ffad-43f2-b186-ff89d30c1650"
+        "recormon": "9f442376-453a-45f9-b494-8aa3412eb60a",
+        "iron_sucrose": "166ff8d1-7b18-43e7-987a-93f965e61431",
+        "heparin": "1ef69ba8-4d8d-4c3c-8f3a-dada5698aac3",
+        "sevelamer": "a4805896-0ca2-4ffc-aadc-cd3736ddde96"
       }
     },
     "6702221": {
-      "last_treatment_no": 93,
-      "last_session_date": "2026-06-15",
-      "dialysis_prescription_count": 28,
+      "last_treatment_no": 97,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 30,
       "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "5d6661f6-05fb-41ed-abcd-34b7bcc8ef3e"
+        "recormon": "afa8402d-fbe5-421b-926c-9985e1060271",
+        "iron_sucrose": "fd41021f-2a1c-45cd-8fdf-b37c895e9eee",
+        "sevelamer": "10d7b0a2-269f-4dbc-8c1e-cb39b98389ff"
       }
     },
     "67030106": {
-      "last_treatment_no": 90,
-      "last_session_date": "2026-06-08",
-      "dialysis_prescription_count": 27,
+      "last_treatment_no": 97,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 30,
       "sessions_on_current_rx": 1,
-      "max_sessions_on_rx": 4,
+      "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
-        "espogen": "d82f11af-f0ae-47bf-beef-0253d7d1cce6"
+        "binocrit": "9c006a64-7b47-4f64-8600-c83230b2111c",
+        "calcitriol": "fb40bf44-dd6f-4b40-af47-e424410c7477",
+        "calcium_carbonate": "74f8e96e-0f2d-4960-abf8-143a6402ae32"
       }
     },
     "184706": {
-      "last_treatment_no": 83,
-      "last_session_date": "2026-05-25",
-      "dialysis_prescription_count": 24,
-      "sessions_on_current_rx": 3,
-      "max_sessions_on_rx": 4,
+      "last_treatment_no": 91,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 28,
+      "sessions_on_current_rx": 1,
+      "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
-        "espogen": "0678ed97-336e-462b-9092-4c4f83cc7073"
+        "eprex": "695d2837-dfdc-4b10-9c69-a041150890e2",
+        "amlodipine": "51ff08c1-b7fc-431c-86c2-44cc83cef985",
+        "calcium_carbonate": "e6bacf60-efe8-4009-8b46-8a8ecf039fab"
       }
     },
     "6706961": {
-      "last_treatment_no": 54,
-      "last_session_date": "2026-06-16",
-      "dialysis_prescription_count": 16,
-      "sessions_on_current_rx": 4,
-      "max_sessions_on_rx": 4,
+      "last_treatment_no": 59,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 19,
+      "sessions_on_current_rx": 1,
+      "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
-        "espogen": "076c19f5-3c13-4698-b910-dfa0ff16b18c"
+        "espogen": "e50d354c-f5fb-40f0-8e02-7c00cb74aee8",
+        "folic_acid": "55899542-0e96-4acd-b520-3d41f329c39f"
       }
     },
     "530323": {
-      "last_treatment_no": 103,
-      "last_session_date": "2026-06-08",
-      "dialysis_prescription_count": 30,
-      "sessions_on_current_rx": 3,
-      "max_sessions_on_rx": 4,
+      "last_treatment_no": 109,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 33,
+      "sessions_on_current_rx": 1,
+      "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
-        "espogen": "f0b6978a-b736-46f2-a8de-f17c7c31d50f"
+        "nesp": "fb9b571e-303b-4680-983d-24f4bf4c63b1",
+        "iron_sucrose": "960abb53-7f28-4ef9-8660-124f84f6fb91",
+        "calcium_carbonate": "27b75360-6d0b-4e1d-8985-f9aae72c319d"
       }
     },
     "6706476": {
-      "last_treatment_no": 98,
-      "last_session_date": "2026-06-10",
-      "dialysis_prescription_count": 29,
-      "sessions_on_current_rx": 3,
-      "max_sessions_on_rx": 3,
-      "medicine_prescription_ids": {
-        "espogen": "9d2fbc27-1584-4ceb-8461-a25af4869d6c"
-      }
-    },
-    "361343": {
-      "last_treatment_no": 105,
-      "last_session_date": "2026-06-08",
+      "last_treatment_no": 104,
+      "last_session_date": "2026-07-20",
       "dialysis_prescription_count": 32,
       "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "84e9dea0-ee2f-410c-8186-e9ebc515709b"
+        "eprex": "9c679b86-23b9-4321-a073-022f21075545",
+        "iron_sucrose": "5e0a47f5-2390-4019-bc76-c198610acd9b",
+        "calcitriol": "6bd47fa9-ef30-45a4-b551-d8768242dfba",
+        "sevelamer": "941d0e8f-6f5e-4e4e-bb31-47ddb44dd701"
       }
     },
-    "6705071": {
-      "last_treatment_no": 91,
-      "last_session_date": "2026-06-03",
-      "dialysis_prescription_count": 27,
+    "361343": {
+      "last_treatment_no": 111,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 35,
       "sessions_on_current_rx": 1,
       "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
-        "espogen": "3498be27-edb3-488d-9b47-8409ca66eadd"
+        "recormon": "d2ac036e-7b5e-4168-b219-2b466bbfc288",
+        "ferric_carboxymaltose": "62dce4f4-a25f-442f-8479-869ce63b31ae",
+        "amlodipine": "69c76972-d00c-45f9-bd48-c63f575d30a6",
+        "sevelamer": "e716178b-13a7-41d2-b8b7-a401041ce1a7"
+      }
+    },
+    "6705071": {
+      "last_treatment_no": 97,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 29,
+      "sessions_on_current_rx": 4,
+      "max_sessions_on_rx": 4,
+      "medicine_prescription_ids": {
+        "espogen": "53c07009-f0d8-40d8-a3c9-bee886d865e4",
+        "amlodipine": "2f116bc0-4621-4b93-8712-a399d6db1835",
+        "sevelamer": "e95eb0e6-3c30-46fe-8389-7a6dce3b5a92"
       }
     },
     "6800002": {
-      "last_treatment_no": 105,
-      "last_session_date": "2026-06-15",
-      "dialysis_prescription_count": 32,
+      "last_treatment_no": 109,
+      "last_session_date": "2026-07-16",
+      "dialysis_prescription_count": 34,
       "sessions_on_current_rx": 3,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
-        "espogen": "ca97f2d6-e1d7-4bed-8625-0822995ebdbe"
+        "eprex": "494a2384-4e84-4bfc-9c8f-f357e1bd9942",
+        "ferric_carboxymaltose": "cf0132b3-446c-4180-92ab-0f87ff793e74",
+        "calcium_carbonate": "3b588263-5be8-4d2c-8594-4ed7246da168",
+        "folic_acid": "6e8837ab-bf2f-42bd-b0f4-3f41748f4fa1"
+      }
+    },
+    "6901001": {
+      "last_treatment_no": 57,
+      "last_session_date": "2026-07-16",
+      "dialysis_prescription_count": 17,
+      "sessions_on_current_rx": 1,
+      "max_sessions_on_rx": 4,
+      "medicine_prescription_ids": {
+        "binocrit": "016e5d7f-fb41-4215-a746-7a97f7148d80",
+        "heparin": "1da40be5-85ff-475f-8ae0-b4c6f5e6fe17",
+        "calcium_carbonate": "5ef0a6cb-ecee-4c26-a7e0-00f2cf75acbf"
+      }
+    },
+    "6901002": {
+      "last_treatment_no": 62,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 19,
+      "sessions_on_current_rx": 3,
+      "max_sessions_on_rx": 4,
+      "medicine_prescription_ids": {
+        "espogen": "582b0c8e-d3a5-40ef-9427-16a402953acd",
+        "calcitriol": "5f46c907-e0b7-4f2c-8df0-0497d0994e8b",
+        "amlodipine": "efca5ed0-c1f2-4ce6-90b7-1cc86e039a03"
+      }
+    },
+    "6901003": {
+      "last_treatment_no": 48,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 14,
+      "sessions_on_current_rx": 3,
+      "max_sessions_on_rx": 3,
+      "medicine_prescription_ids": {
+        "eprex": "e80b2c5e-c7ab-4aab-affa-a6b028e68617",
+        "iron_sucrose": "d751a34a-5685-4224-9b1e-99e166e9665e",
+        "sevelamer": "96feec40-9e71-437b-8707-9dd9e7b4d28e"
+      }
+    },
+    "6901004": {
+      "last_treatment_no": 51,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 15,
+      "sessions_on_current_rx": 2,
+      "max_sessions_on_rx": 4,
+      "medicine_prescription_ids": {
+        "eprex": "643525f5-e4c6-4cc4-8641-a238cdd0983a",
+        "iron_sucrose": "c1afc68b-77b0-4af1-92b7-c72bde19d416",
+        "heparin": "567255a7-d445-48dd-82aa-a1b635d4bb6f",
+        "calcitriol": "51a869db-7964-4917-b92d-ebbde14c44db"
+      }
+    },
+    "6901005": {
+      "last_treatment_no": 50,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 15,
+      "sessions_on_current_rx": 1,
+      "max_sessions_on_rx": 3,
+      "medicine_prescription_ids": {
+        "eprex": "3816e86c-4d8f-4af3-8035-fa1d52e76f49",
+        "ferric_carboxymaltose": "08773357-4c13-4549-b837-3376b0924e60",
+        "heparin": "e09ce08b-f79f-430a-943b-9a5b4d55c5cd",
+        "calcium_carbonate": "9bd1ebd8-23a0-481f-8a25-5441e63eff7b",
+        "sevelamer": "4fbb6443-71e6-4e55-9ce5-4bfd8aad5e5e"
+      }
+    },
+    "6901006": {
+      "last_treatment_no": 50,
+      "last_session_date": "2026-07-15",
+      "dialysis_prescription_count": 14,
+      "sessions_on_current_rx": 1,
+      "max_sessions_on_rx": 3,
+      "medicine_prescription_ids": {
+        "espogen": "bb0d4fb5-29fa-4d15-80eb-cc300f02d073",
+        "amlodipine": "1e027c10-9393-42de-bb0c-f5104375bc30",
+        "calcitriol": "3e336a1a-6101-476c-8567-0d1d44fc2a18"
+      }
+    },
+    "6901007": {
+      "last_treatment_no": 56,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 16,
+      "sessions_on_current_rx": 2,
+      "max_sessions_on_rx": 4,
+      "medicine_prescription_ids": {
+        "recormon": "d939fae2-43d1-4cd3-be28-baaf04943802",
+        "amlodipine": "6ac8719b-3077-4803-8206-953990e42785"
+      }
+    },
+    "6901008": {
+      "last_treatment_no": 49,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 15,
+      "sessions_on_current_rx": 1,
+      "max_sessions_on_rx": 4,
+      "medicine_prescription_ids": {
+        "espogen": "2b02f5c8-4f1e-4915-b98b-ac7b53f749fb",
+        "folic_acid": "4a34ab95-efde-4ecb-89b5-f5ea474715c7",
+        "calcitriol": "b3874744-dfe7-406e-9d3e-42ab07f6965d"
+      }
+    },
+    "6902001": {
+      "last_treatment_no": 50,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 15,
+      "sessions_on_current_rx": 2,
+      "max_sessions_on_rx": 3,
+      "medicine_prescription_ids": {
+        "binocrit": "bd25d4d0-35fd-47f4-a337-55147d8a5c37",
+        "heparin": "8910b1ea-a716-4df9-b49f-673e11ae7e7c",
+        "calcitriol": "305447d6-ab9f-4071-9600-87ff80b66d79",
+        "folic_acid": "141c672e-2393-4e35-a8c9-f13cafc42b32"
+      }
+    },
+    "6902002": {
+      "last_treatment_no": 51,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 15,
+      "sessions_on_current_rx": 3,
+      "max_sessions_on_rx": 4,
+      "medicine_prescription_ids": {
+        "eprex": "bbc5cf86-d145-4a5f-ba7b-d5751d1b8a9c",
+        "amlodipine": "e1c6b06d-31e7-482d-a776-a39c304a3dba"
+      }
+    },
+    "6902003": {
+      "last_treatment_no": 51,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 16,
+      "sessions_on_current_rx": 2,
+      "max_sessions_on_rx": 4,
+      "medicine_prescription_ids": {
+        "recormon": "19445eb7-ad5d-43dc-99c3-305062d4bc96",
+        "ferric_carboxymaltose": "13658a90-afd4-485e-82a6-1865e3648239",
+        "sevelamer": "add39987-0ee4-4274-a2ea-9802e1b74168"
+      }
+    },
+    "6902004": {
+      "last_treatment_no": 50,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 15,
+      "sessions_on_current_rx": 1,
+      "max_sessions_on_rx": 3,
+      "medicine_prescription_ids": {
+        "binocrit": "9961c2b2-e33c-4f36-8581-0717d9ada33a",
+        "iron_sucrose": "a4931c03-9022-482f-98b6-0265fb007e29",
+        "heparin": "f4db79a1-bdbe-46d5-a92a-18d3da85b635",
+        "sevelamer": "7db660c5-4666-4f70-829d-12c3c78720b9",
+        "calcitriol": "acf405db-ce31-46b4-9eae-e2ecc93c4055"
+      }
+    },
+    "6902005": {
+      "last_treatment_no": 50,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 15,
+      "sessions_on_current_rx": 3,
+      "max_sessions_on_rx": 4,
+      "medicine_prescription_ids": {
+        "nesp": "441b1647-3f2f-417d-afd4-28c5ee3e9db2",
+        "iron_sucrose": "b9719d94-2e77-405f-bca7-a2765aa0cf14",
+        "heparin": "fdc24986-f8c6-4d35-8e30-e396f88a3eed",
+        "amlodipine": "ca7bb554-2d5b-4383-b0db-ecaf8067bd48"
+      }
+    },
+    "6902006": {
+      "last_treatment_no": 63,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 19,
+      "sessions_on_current_rx": 3,
+      "max_sessions_on_rx": 3,
+      "medicine_prescription_ids": {
+        "binocrit": "4d16c27a-9976-4c25-af93-b24c1c9bb18e",
+        "iron_sucrose": "e17f28c3-d23b-40b3-bafd-54c2bf732e5e",
+        "folic_acid": "c4b3ffb5-00f9-48f4-b022-f7a24309a8ec"
+      }
+    },
+    "6902007": {
+      "last_treatment_no": 51,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 15,
+      "sessions_on_current_rx": 2,
+      "max_sessions_on_rx": 3,
+      "medicine_prescription_ids": {
+        "nesp": "6345c055-1ec2-425d-998f-4e799269af69",
+        "ferric_carboxymaltose": "874889d5-a292-497e-9534-825996be2c5e",
+        "calcitriol": "e7a27814-4d49-4977-8edb-cd0d368dc563"
+      }
+    },
+    "6902008": {
+      "last_treatment_no": 57,
+      "last_session_date": "2026-07-16",
+      "dialysis_prescription_count": 16,
+      "sessions_on_current_rx": 2,
+      "max_sessions_on_rx": 3,
+      "medicine_prescription_ids": {
+        "espogen": "27518c0a-132e-4b0f-8f8f-c5d99b743546",
+        "sevelamer": "239e0b93-9578-43e4-9292-20d8909452ff",
+        "amlodipine": "adfa035f-e9bc-45dd-9c24-4398ea99581a"
       }
     }
   }

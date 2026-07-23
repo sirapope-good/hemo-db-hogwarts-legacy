@@ -1,0 +1,243 @@
+Id,DoseAmount,MedType,Name,PieceUnit,StrengthType
+-1,5,0,Amlodipine,mg,0
+-2,30,0,Nifedipine,mg,0
+-3,5,0,Felodipine,mg,0
+-4,10,0,Lercanidipine,mg,0
+-5,240,0,Verapamil,mg,0
+-6,180,0,Diltiazem,mg,0
+-7,50,0,Atenolol,mg,0
+-8,50,0,Metoprolol,mg,0
+-9,5,0,Bisoprolol,mg,0
+-10,6.25,0,Carvedilol,mg,0
+-11,80,0,Propranolol,mg,0
+-12,200,0,Labetalol,mg,0
+-13,25,0,Captopril,mg,0
+-14,10,0,Enalapril,mg,0
+-15,10,0,Lisinopril,mg,0
+-16,50,0,Losartan,mg,0
+-17,80,0,Valsartan,mg,0
+-18,20,0,Telmisartan,mg,0
+-19,12.5,0,Hydrochlorothiazide,mg,0
+-20,12.5,0,Chlorthalidone,mg,0
+-21,0.125,0,Digoxin,mg,0
+-22,200,0,Amiodarone,mg,0
+-23,6,0,Adenosine,mg,0
+-24,50,0,Flecainide,mg,0
+-25,150,0,Propafenone,mg,0
+-26,10,0,Isosorbide dinitrate,mg,0
+-27,30,0,Isosorbide mononitrate,mg,0
+-28,0.4,0,Nitroglycerin,mg,0
+-29,25,0,Hydralazine,mg,0
+-30,5,0,Ivabradine,mg,0
+-31,49,0,Sacubitril/valsartan,mg,1
+-32,25,0,Spironolactone,mg,0
+-33,20,0,Furosemide,mg,0
+-34,5,0,Torasemide,mg,0
+-35,2,0,Warfarin,mg,0
+-36,1,0,Enoxaparin,mg/kg,0
+-37,5,0,Apixaban,mg,0
+-38,20,0,Rivaroxaban,mg,0
+-39,150,0,Dabigatran,mg,0
+-40,500,0,Metformin,mg,0
+-41,30,0,Gliclazide,mg,0
+-42,2.5,0,Glibenclamide,mg,0
+-43,5,0,Glipizide,mg,0
+-44,0.5,0,Repaglinide,mg,0
+-45,15,0,Pioglitazone,mg,0
+-46,25,0,Acarbose,mg,0
+-47,100,0,Sitagliptin,mg,0
+-48,50,0,Vildagliptin,mg,0
+-49,5,0,Linagliptin,mg,0
+-50,10,0,Empagliflozin,mg,0
+-51,10,0,Dapagliflozin,mg,0
+-52,100,0,Canagliflozin,mg,0
+-53,0.6,0,Liraglutide,mg,0
+-54,0.75,0,Dulaglutide,mg,0
+-55,,0,Insulin Regular,,0
+-56,0.2,0,Insulin NPH,unit/kg,0
+-57,,0,Insulin Glargine,,0
+-58,,0,Insulin Lispro,,0
+-59,,0,Insulin Aspart,,0
+-60,500,0,Amoxicillin,mg,0
+-61,,0,Amoxicillin/clavulanate,875/125,1
+-62,1,0,Ampicillin,g,0
+-63,500,0,Cloxacillin,mg,0
+-64,,0,Piperacillin/tazobactam,4/0.5,1
+-65,1,0,Cefazolin,g,0
+-66,500,0,Cephalexin,mg,0
+-67,250,0,Cefuroxime,mg,0
+-68,1,0,Ceftriaxone,g,0
+-69,1,0,Cefotaxime,g,0
+-70,2,0,Ceftazidime,g,0
+-71,2,0,Cefepime,g,0
+-72,500,0,Imipenem,mg,0
+-73,1,0,Meropenem,g,0
+-74,1,0,Ertapenem,g,0
+-75,500,0,Azithromycin,mg,0
+-76,500,0,Clarithromycin,mg,0
+-77,100,0,Doxycycline,mg,0
+-78,5,0,Gentamicin,mg/kg,0
+-79,500,0,Ciprofloxacin,mg,0
+-80,500,0,Levofloxacin,mg,0
+-81,300,0,Clindamycin,mg,0
+-82,400,0,Metronidazole,mg,0
+-83,15,0,Vancomycin,mg/kg,0
+-84,600,0,Linezolid,mg,0
+-85,960,0,Cotrimoxazole,mg,0
+-86,150,0,Fluconazole,mg,0
+-87,0.5,0,Amphotericin B,mg/kg,0
+-88,400,0,Acyclovir,mg,0
+-89,75,0,Oseltamivir,mg,0
+-90,300,0,Isoniazid,mg,0
+-91,600,0,Rifampicin,mg,0
+-92,15,0,Ethambutol,mg/kg,0
+-93,20,0,Omeprazole,mg,0
+-94,40,0,Pantoprazole,mg,0
+-95,10,0,Aluminium hydroxide,mL,0
+-96,1,0,Sucralfate,g,0
+-97,10,0,Metoclopramide,mg,0
+-98,4,0,Ondansetron,mg,0
+-99,15,0,Lactulose,mL,0
+-100,4,0,Loperamide,mg start,0
+-101,5,0,Bisacodyl,mg,0
+-102,8,0,Senna,mg,0
+-103,10,0,Hyoscine,mg,0
+-104,250,0,Ursodeoxycholic acid,mg,0
+-105,2,0,Mesalazine,g,0
+-106,20,0,Fluoxetine,mg,0
+-107,50,0,Sertraline,mg,0
+-108,10,0,Escitalopram,mg,0
+-109,25,0,Amitriptyline,mg,0
+-110,2,0,Haloperidol,mg,0
+-111,2,0,Risperidone,mg,0
+-112,5,0,Olanzapine,mg,0
+-113,50,0,Quetiapine,mg,0
+-114,300,0,Lithium,mg,0
+-115,500,0,Valproate,mg,0
+-116,2,0,Diazepam,mg,0
+-117,,0,Paracetamol,,0
+-118,400,0,Ibuprofen,mg,0
+-119,50,0,Diclofenac,mg,0
+-120,200,0,Naproxen,mg,0
+-121,200,0,Celecoxib,mg,0
+-122,50,0,Tramadol,mg,0
+-123,0.5,0,Colchicine,mg,0
+-124,100,0,Allopurinol,mg,0
+-125,70,0,Alendronate,mg,0
+-126,500,0,Calcium carbonate,mg,0
+-127,800,0,Vitamin D,IU,0
+-128,2,0,Salbutamol,puffs,0
+-129,2,0,Ipratropium,puffs,0
+-130,18,0,Tiotropium,mcg,0
+-131,200,0,Budesonide,mcg,0
+-132,100,0,Fluticasone,mcg,0
+-133,10,0,Montelukast,mg,0
+-134,200,0,Theophylline,mg,0
+-135,200,0,Acetylcysteine,mg,0
+-136,20,0,Prednisolone,mg,0
+-137,20,0,Simvastatin,mg,0
+-138,10,0,Atorvastatin,mg,0
+-139,5,0,Rosuvastatin,mg,0
+-140,10,0,Pravastatin,mg,0
+-141,145,0,Fenofibrate,mg,0
+-142,600,0,Gemfibrozil,mg,0
+-143,10,0,Ezetimibe,mg,0
+-144,2,0,Omega-3,g,0
+-145,1.6,0,Levothyroxine,mcg/kg,0
+-146,10,0,Methimazole,mg,0
+-147,100,0,Propylthiouracil,mg,0
+-148,15,0,Hydrocortisone,mg,0
+-149,4,0,Dexamethasone,mg,0
+-150,0.05,0,Fludrocortisone,mg,0
+-151,0.25,0,Calcitriol,mcg,0
+-152,0.1,0,Desmopressin,mg,0
+-153,100,0,Nitrofurantoin,mg,0
+-154,3,0,Fosfomycin,g,0
+-155,400,0,Norfloxacin,mg,0
+-156,200,0,Cefixime,mg,0
+-157,0.4,0,Tamsulosin,mg,0
+-158,10,0,Alfuzosin,mg,0
+-159,1,0,Doxazosin,mg,0
+-160,5,0,Finasteride,mg,0
+-161,0.5,0,Dutasteride,mg,0
+-162,5,0,Oxybutynin,mg,0
+-163,2,0,Tolterodine,mg,0
+-164,5,0,Solifenacin,mg,0
+-165,25,0,Mirabegron,mg,0
+-166,10,0,Potassium citrate,mEq,0
+-167,,0,Sodium bicarbonate,,0
+-168,,0,Morphine,,0
+-169,25,0,Fentanyl,mcg,0
+-170,1,0,Midazolam,mg,0
+-171,0.5,0,Atropine,mg,0
+-172,1,0,Adrenaline,mg,0
+-173,,0,Noradrenaline,,0
+-174,1,0,Calcium gluconate,g,0
+-175,0.25,0,Mannitol,kg,0
+-176,100,0,Phenytoin,mg,0
+-177,500,0,Levetiracetam,mg,0
+-178,200,0,Carbamazepine,mg,0
+-179,300,0,Gabapentin,mg,0
+-180,75,0,Pregabalin,mg,0
+-181,,0,Sodium chloride,,0
+-182,,0,Ringer lactate,,0
+-183,20,0,Potassium chloride,mEq,0
+-184,1,0,Magnesium sulfate,g,0
+-185,50,0,Glucose 50%,ml,0
+-186,25,0,Dextrose 50%,g,0
+-187,5,0,Vitamin K,mg,0
+-188,200,0,Ferrous sulfate,mg,0
+-189,5,0,Folic acid,mg,0
+-190,500,0,Tranexamic acid,mg,0
+-191,100,2,Iron sucrose,mg,0
+-192,500,2,Ferric carboxymaltose,mg,0
+-193,,2,Iron dextran,,0
+-194,,2,Sodium ferric gluconate,,0
+-195,200,0,Ferrous sulfate,mg,0
+-196,200,0,Ferrous fumarate,mg,0
+-197,300,0,Ferrous gluconate,mg,0
+-198,100,0,Iron polymaltose,Fe,0
+-199,5,0,Folic acid,mg,0
+-200,500,0,Calcium carbonate,mg,0
+-201,667,0,Calcium acetate,mg,0
+-202,800,0,Sevelamer carbonate,mg,0
+-203,800,0,Sevelamer HCl,mg,0
+-204,500,0,Lanthanum carbonate,mg,0
+-205,,0,Sucroferric oxyhydroxide,,0
+-206,0.25,0,Calcitriol,mcg,0
+-207,0.25,0,Alfacalcidol,mcg,0
+-208,,0,Paricalcitol,,0
+-209,,0,Cholecalciferol,,0
+-210,,0,Ergocalciferol,,0
+-211,30,0,Cinacalcet,,0
+-212,,0,Etelcalcetide,,0
+-213,10,0,Potassium citrate,mEq,0
+-214,,0,Insulin + glucose,,1
+-215,,0,Salbutamol neb,,0
+-216,,0,Sodium polystyrene sulfonate,,0
+-217,,0,Calcium polystyrene sulfonate,,0
+-218,,0,Patiromer,,0
+-219,,0,Sodium zirconium cyclosilicate,,0
+-220,1,0,Magnesium sulfate,g,0
+-221,1,0,Bumetanide,mg,0
+-222,5,0,Amiloride,mg,0
+-223,,0,Metolazone,,0
+-224,100,0,Allopurinol,mg,0
+-225,40,0,Febuxostat,mg,0
+-226,0.5,0,Colchicine,mg,0
+-227,,0,Heparin,,0
+-228,,0,LMWH,,0
+-229,,0,Protamine,,0
+-230,,0,Albumin,,0
+-231,,0,Levocarnitine,,0
+-232,,2,Iron isomaltoside,,0
+-233,,1,Eprex,,0
+-234,,1,Espogen,,0
+-235,,1,Binocrit,,0
+-236,,1,Hema-Plus,,0
+-237,,1,Epokine,,0
+-238,,1,Recormon ,,0
+-239,,1,Nesp,,0
+-240,,1,Mircera,,0
+-241,,1,Hemax,,0
+-242,,0,SmofKabiven,,0

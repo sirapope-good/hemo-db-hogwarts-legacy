@@ -10,6 +10,7 @@ class PatientInfo:
     patient_id: str
     name: str
     doctor_id: str | None
+    unit_id: int = -1
 
 
 @dataclass(frozen=True)
@@ -20,29 +21,33 @@ class SlotAssignment:
 
 def load_patients(path: Path) -> list[PatientInfo]:
     text = path.read_text(encoding="utf-8")
-    pattern = re.compile(
-        r"\(\s*(\d+)\s*,\s*'[^']+'\s*,\s*TRUE\s*,\s*\d+\s*,\s*'[^']*'\s*,\s*'([^']+)'\s*,"
-        r"[^,]*,[^,]*,[^,]*,(?:'([0-9a-f-]{36})'|NULL)\s*,",
-        re.IGNORECASE,
-    )
     # simpler line-based parse
     patients: list[PatientInfo] = []
     for line in text.splitlines():
         line = line.strip()
         if not line.startswith("("):
             continue
-        m = re.match(r"\(\s*([^,]+)\s*,", line)
-        if not m:
+        quoted = re.match(r"\(\s*'([^']+)'\s*,", line)
+        bare = re.match(r"\(\s*([^,',]+)\s*,", line)
+        if quoted:
+            pid = quoted.group(1).strip()
+        elif bare:
+            pid = bare.group(1).strip()
+        else:
             continue
-        pid = m.group(1).strip()
         name_m = re.search(r",\s*'([^']+)'\s*,\s*'[MF]'\s*,", line)
-        doc_m = re.search(r",\s*'([0-9a-f-]{36})'\s*,\s*-?\d+\s*\)", line)
+        tail_m = re.search(
+            r",\s*(?:'([0-9a-f-]{36})'|NULL)\s*,\s*(-?\d+)\s*\)\s*;?\s*,?\s*$",
+            line,
+            re.IGNORECASE,
+        )
         if name_m:
             patients.append(
                 PatientInfo(
                     patient_id=pid,
                     name=name_m.group(1),
-                    doctor_id=doc_m.group(1) if doc_m else None,
+                    doctor_id=tail_m.group(1) if tail_m and tail_m.group(1) else None,
+                    unit_id=int(tail_m.group(2)) if tail_m else -1,
                 )
             )
     return patients
@@ -66,6 +71,6 @@ def load_section_times(path: Path) -> dict[int, tuple[int, int, int]]:
     result: dict[int, tuple[int, int, int]] = {}
     for line in text.splitlines():
         m = re.search(r"\(\s*(\d+)\s*,.*?'(\d{2}):(\d{2}):(\d{2})'\s*\)", line)
-        if m and int(m.group(1)) <= 4:
+        if m:
             result[int(m.group(1))] = (int(m.group(2)), int(m.group(3)), int(m.group(4)))
     return result

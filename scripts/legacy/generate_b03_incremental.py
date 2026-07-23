@@ -523,9 +523,17 @@ def _merge_rows_into_base_file(input_path: Path, rows: list[list[str]]) -> None:
 
 
 def main() -> None:
-    """entrypoint: parse args -> generate -> export -> merge/cleanup."""
+    """entrypoint: default → hemo_gen full session; --clone-only → legacy B03 clone."""
     parser = argparse.ArgumentParser(
-        description="Generate incremental B03-HemodialysisRecords rows (UTC, skip weekends)."
+        description=(
+            "Extend dialysis seed to today. Default uses hemo_gen (B02+B07+B03…). "
+            "Pass --clone-only for legacy B03-only gap-fill/clone."
+        )
+    )
+    parser.add_argument(
+        "--clone-only",
+        action="store_true",
+        help="Legacy: gap-fill/clone B03 only (no dialysis/medicine prescription rows)",
     )
     parser.add_argument(
         "--input",
@@ -605,6 +613,24 @@ def main() -> None:
             sys.stdout.reconfigure(encoding="utf-8")
         except (OSError, ValueError):
             pass
+
+    if not args.clone_only:
+        if str(_REPO_ROOT) not in sys.path:
+            sys.path.insert(0, str(_REPO_ROOT))
+        from hemo_gen.generate_all import generate_all_patients
+
+        print(
+            "Delegating to hemo_gen generate-all --span today "
+            "(B02 dialysis Rx + B07 medicine Rx + B03–B06)."
+        )
+        print("Pass --clone-only for legacy B03-only gap-fill/clone.")
+        summary = generate_all_patients(_REPO_ROOT, span="today", post_steps=True)
+        if summary.failed:
+            for pid, msg in summary.failed:
+                print(f"  fail {pid}: {msg}")
+            raise SystemExit(1)
+        print(f"Done: patients={summary.patients} sessions+={summary.sessions}")
+        return
 
     # เตรียม path ที่ใช้อ่าน/เขียน (relative กับ repo root)
     def _resolve(p: str) -> Path:

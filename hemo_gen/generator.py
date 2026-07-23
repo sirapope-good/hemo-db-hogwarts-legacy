@@ -2,8 +2,7 @@ from __future__ import annotations
 
 import datetime as dt
 import random
-from dataclasses import dataclass, field
-from pathlib import Path
+from dataclasses import dataclass
 
 from hemo_gen.assessment import (
     ASSESSMENT_ITEM_COLUMNS,
@@ -21,7 +20,6 @@ from hemo_gen.config import (
     B05_FILE,
     B06_FILE,
     B07_FILE,
-    CREATED_BY,
     GenConfig,
     PATIENTS_FILE,
     SLOT_FILE,
@@ -32,8 +30,15 @@ from hemo_gen.config import (
     state_path,
 )
 from hemo_gen.dialysis_records import B04_COLUMNS, build_dialysis_records
-from hemo_gen.execution import B06_COLUMNS, build_medicine_execution
-from hemo_gen.medicine_prescription import B07_COLUMNS, build_espogen_prescription, load_medicine_catalog
+from hemo_gen.execution import B06_COLUMNS, build_session_executions
+from hemo_gen.medicine_prescription import (
+    B07_COLUMNS,
+    MedicinePrescriptionRow,
+    build_medicine_prescription,
+    load_medicine_catalog,
+    load_templates,
+    plan_patient_medication_keys,
+)
 from hemo_gen.patient_loader import load_patients, load_slot_assignments
 from hemo_gen.prescription import B02_COLUMNS, DialysisPrescriptionManager
 from hemo_gen.profiles import build_profile
@@ -62,6 +67,92 @@ class GenResult:
     b06_rows: int = 0
     b07_rows: int = 0
     b01_written: bool = False
+
+
+def _resolve_session_window(cfg: GenConfig, last_session_date: str | None) -> tuple[dt.date, dt.date]:
+    """Continue from day after last generated session when state has progress."""
+    end = cfg.end_date
+    start = cfg.start_date
+    if last_session_date:
+        after = dt.date.fromisoformat(last_session_date) + dt.timedelta(days=1)
+        if after > start:
+            start = after
+    return first_business_on_or_after(start), end
+
+
+def _ensure_medicine_prescriptions(
+    *,
+    profile,
+    patient_id: str,
+    administer_at: dt.datetime,
+    b07_path,
+    ps,
+    rng: random.Random,
+    catalog: dict,
+    force_meds: bool = False,
+) -> tuple[list[MedicinePrescriptionRow], list[list[str]]]:
+    """
+    Ensure patient has a natural multi-med B07 set.
+    Returns (active prescription objects for B06, new SQL rows to append).
+    """
+    templates = load_templates(catalog)
+    existing_in_file = find_patient_uuid_in_file(b07_path, "MedicinePrescriptions", "PatientId", patient_id)
+    active: list[MedicinePrescriptionRow] = []
+    new_rows: list[list[str]] = []
+
+    if force_meds:
+        ps.medicine_prescription_ids = {}
+
+    planned_keys = [k for k in ps.medicine_prescription_ids.keys() if k in templates]
+    if not planned_keys:
+        planned_keys = plan_patient_medication_keys(profile, rng, catalog)
+
+    # Legacy single-row seed without state keys: keep Espogen id for B06 unless force_meds.
+    if existing_in_file and not ps.medicine_prescription_ids and not force_meds:
+        tmpl = templates["espogen"]
+        legacy = MedicinePrescriptionRow(
+            id=existing_in_file,
+            key="espogen",
+            role="esa",
+            medicine_id=tmpl.medicine_id,
+            non_dialysis=False,
+            execute_chance=tmpl.execute_chance,
+            route=tmpl.route,
+            fields=[],
+        )
+        ps.medicine_prescription_ids["espogen"] = existing_in_file
+        return [legacy], []
+
+    for key in planned_keys:
+        tmpl = templates[key]
+        existing_id = None if force_meds else ps.medicine_prescription_ids.get(key)
+        if existing_id:
+            active.append(
+                MedicinePrescriptionRow(
+                    id=existing_id,
+                    key=key,
+                    role=tmpl.role,
+                    medicine_id=tmpl.medicine_id,
+                    non_dialysis=tmpl.non_dialysis,
+                    execute_chance=tmpl.execute_chance,
+                    route=tmpl.route,
+                    fields=[],
+                )
+            )
+            continue
+
+        note = f"Hogwarts gen {tmpl.name} (with dialysis start {administer_at.date().isoformat()})"
+        row = build_medicine_prescription(
+            tmpl,
+            patient_id,
+            administer_at,
+            note=note,
+        )
+        active.append(row)
+        new_rows.append(row.fields)
+        ps.medicine_prescription_ids[key] = row.id
+
+    return active, new_rows
 
 
 def run_generator(cfg: GenConfig) -> GenResult:
@@ -97,7 +188,19 @@ def run_generator(cfg: GenConfig) -> GenResult:
         rx_mgr.sessions_on_rx = ps.sessions_on_current_rx
         rx_mgr.max_sessions = ps.max_sessions_on_rx
 
-    session_slots = build_session_slots(profile, cfg.start_date, cfg.end_date, rng)
+    window_start, window_end = _resolve_session_window(cfg, ps.last_session_date)
+    if window_start > window_end:
+        print(
+            f"[skip] patient={cfg.patient_id} already through {ps.last_session_date} "
+            f"(target end={window_end})"
+        )
+        return result
+
+    session_slots = build_session_slots(profile, window_start, window_end, rng)
+    if not session_slots:
+        print(f"[skip] patient={cfg.patient_id} no session days in {window_start}..{window_end}")
+        return result
+
     catalog = load_medicine_catalog()
     amap = load_assessment_map()
     b01_rows: list[list[str]] = []
@@ -110,7 +213,9 @@ def run_generator(cfg: GenConfig) -> GenResult:
     b06_rows: list[list[str]] = []
     b07_rows: list[list[str]] = []
 
-    first_session_date = session_slots[0].session_date if session_slots else cfg.start_date
+    first_slot = session_slots[0]
+    # Medicine AdministerDate aligns with first dialysis prescription / session of this generation window.
+    med_admin = first_slot.cycle_start
 
     if not patient_exists_in_file(b01_path, "AvShunts", "PatientId", cfg.patient_id) or cfg.force_b01:
         established = dt.datetime.combine(
@@ -121,19 +226,17 @@ def run_generator(cfg: GenConfig) -> GenResult:
         b01_rows.append(build_b01_row(profile, established))
         result.b01_written = True
 
-    med_rx_id = find_patient_uuid_in_file(b07_path, "MedicinePrescriptions", "PatientId", cfg.patient_id)
-    if not med_rx_id:
-        stale_rx_id = ps.medicine_prescription_ids.get("espogen")
-        med_row = build_espogen_prescription(
-            cfg.patient_id,
-            dt.datetime.combine(first_session_date, dt.time(5, 0), tzinfo=dt.timezone.utc),
-            cfg.end_date,
-            catalog,
-            prescription_id=stale_rx_id,
-        )
-        med_rx_id = med_row.id
-        b07_rows.append(med_row.fields)
-    ps.medicine_prescription_ids["espogen"] = med_rx_id
+    active_meds, new_med_rows = _ensure_medicine_prescriptions(
+        profile=profile,
+        patient_id=cfg.patient_id,
+        administer_at=med_admin,
+        b07_path=b07_path,
+        ps=ps,
+        rng=rng,
+        catalog=catalog,
+        force_meds=cfg.force_meds,
+    )
+    b07_rows.extend(new_med_rows)
 
     is_first_rx = True
     for slot in session_slots:
@@ -141,10 +244,6 @@ def run_generator(cfg: GenConfig) -> GenResult:
         if new_rx:
             b02_rows.extend(new_rx)
             result.b02_rows += len(new_rx)
-            is_first_rx = False
-        elif is_first_rx:
-            b02_rows.append(rx_mgr.active().fields)
-            result.b02_rows += 1
             is_first_rx = False
 
         treatment_no += 1
@@ -158,14 +257,7 @@ def run_generator(cfg: GenConfig) -> GenResult:
         b05_post_rows.append(build_post_vital(built, pre_bps, rng))
         b05_item_rows.extend(build_assessment_items(built.hemo_id, amap))
 
-        exec_row = build_medicine_execution(
-            built,
-            med_rx_id,
-            catalog["espogen"]["override_route"],
-            rng,
-        )
-        if exec_row:
-            b06_rows.append(exec_row)
+        b06_rows.extend(build_session_executions(built, active_meds, rng))
 
         rx_mgr.on_session_completed()
         result.sessions += 1
@@ -179,7 +271,9 @@ def run_generator(cfg: GenConfig) -> GenResult:
     result.b07_rows = len(b07_rows)
 
     if cfg.dry_run:
-        print(f"[dry-run] patient={cfg.patient_id} sessions={result.sessions}")
+        med_keys = list(ps.medicine_prescription_ids.keys())
+        print(f"[dry-run] patient={cfg.patient_id} sessions={result.sessions} window={window_start}..{window_end}")
+        print(f"  meds={med_keys}")
         print(f"  B01={len(b01_rows)} B02={result.b02_rows} B07={result.b07_rows} B03={result.b03_rows}")
         print(f"  B04={result.b04_rows} B05 pre/post/items={result.b05_pre}/{result.b05_post}/{result.b05_items} B06={result.b06_rows}")
         return result

@@ -9,15 +9,22 @@ from zoneinfo import ZoneInfoNotFoundError
 CREATED_BY = "866dabc4-6501-44d2-a0e5-65da9c45a46e"
 START_DATE = dt.date(2025, 8, 1)
 TODAY_TZ = "Asia/Bangkok"
-WARD = "Hogwarts"
+WARD = "Hogwarts Hospital Wing"
+WARD_BY_UNIT: dict[int, str] = {
+    -1: "Hogwarts Hospital Wing",
+    1: "Azkaban Ward",
+}
 MACHINE_MODEL = "Nikkiso DBB-05/07"
 
-# SectionId -> UTC hour:minute (from 08-Sections Hogwarts unit -1)
+# SectionId -> UTC hour:minute (08-Sections: 1-4 Hogwarts, 5-7 Azkaban)
 SECTION_UTC_TIMES: dict[int, tuple[int, int]] = {
     1: (5, 0),
     2: (9, 0),
     3: (13, 0),
     4: (17, 0),
+    5: (12, 0),
+    6: (16, 0),
+    7: (20, 0),
 }
 
 DURATION_HOURS = 4
@@ -78,6 +85,7 @@ class GenConfig:
     seed: int
     dry_run: bool
     force_b01: bool
+    force_meds: bool = False
 
 
 def resolve_timezone(name: str) -> dt.tzinfo:
@@ -89,10 +97,24 @@ def resolve_timezone(name: str) -> dt.tzinfo:
         raise
 
 
+def clinic_today(tz_name: str = TODAY_TZ) -> dt.date:
+    """Calendar 'today' in clinic timezone (default Asia/Bangkok)."""
+    return dt.datetime.now(resolve_timezone(tz_name)).date()
+
+
+def playable_end_date(tz_name: str = TODAY_TZ) -> dt.date:
+    """
+    Last date we may generate session data for.
+
+    Stops at yesterday so *today* stays empty for manual / UI play.
+    """
+    return clinic_today(tz_name) - dt.timedelta(days=1)
+
+
 def resolve_end_date(span: str, start: dt.date, tz_name: str) -> dt.date:
     if span == "today":
-        tz = resolve_timezone(tz_name)
-        return dt.datetime.now(tz).date()
+        # Through yesterday only — leave today free for the user.
+        return playable_end_date(tz_name)
     if span.endswith("m"):
         months = int(span[:-1])
         month = start.month - 1 + months

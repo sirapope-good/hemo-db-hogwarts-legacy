@@ -22,10 +22,30 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p.add_argument("--patient-id", help="PatientId จาก 05-Patients.sql")
     p.add_argument("--list-patients", action="store_true", help="แสดงรายชื่อผู้ป่วย")
-    p.add_argument("--span", default="today", choices=("2m", "4m", "6m", "today"), help="ช่วงข้อมูลจาก 2025-08-01")
+    p.add_argument(
+        "--span",
+        default="today",
+        choices=("2m", "4m", "6m", "today"),
+        help="ช่วงข้อมูลจาก 2025-08-01; today = through yesterday (leave today free)",
+    )
     p.add_argument("--seed", type=int, default=None, help="seed สำหรับ random แบบ deterministic")
     p.add_argument("--dry-run", action="store_true", help="สรุปจำนวนแถว ไม่เขียนไฟล์")
     p.add_argument("--force-b01", action="store_true", help="เขียน B01 แม้มี patient ในไฟล์แล้ว")
+    p.add_argument(
+        "--force-meds",
+        action="store_true",
+        help="วางแผน/สร้าง MedicinePrescription ชุดใหม่ (ESA+iron+oral) แม้มี state เดิม",
+    )
+    p.add_argument(
+        "--rebuild-b07",
+        action="store_true",
+        help="สร้าง B07 ใหม่ทั้งไฟล์ (multi-med, ExpireDate=NULL) แล้ว sync B06",
+    )
+    p.add_argument(
+        "--rebuild-b06",
+        action="store_true",
+        help="สร้าง B06 ใหม่จาก B03 + medicine ids ใน state",
+    )
     p.add_argument(
         "--patch-b03-weights",
         action="store_true",
@@ -132,6 +152,26 @@ def main(argv: list[str] | None = None) -> int:
             print("restore B07: ไม่มีข้อมูลใน state — ระบุ --patient-id หรือรัน generate ก่อน")
         return 0
 
+    if args.rebuild_b07:
+        from hemo_gen.rebuild_b06 import rebuild_b06
+        from hemo_gen.rebuild_b07 import rebuild_b07
+
+        patients, rows = rebuild_b07(base, args.patient_id, dry_run=args.dry_run)
+        mode = "dry-run" if args.dry_run else "wrote"
+        print(f"rebuild B07 ({mode}): patients={patients} prescriptions={rows}")
+        if not args.dry_run:
+            sc, ex = rebuild_b06(base, args.patient_id)
+            print(f"rebuild B06 (synced to new B07): sessions={sc} executions={ex}")
+        return 0
+
+    if getattr(args, "rebuild_b06", False):
+        from hemo_gen.rebuild_b06 import rebuild_b06
+
+        sc, ex = rebuild_b06(base, args.patient_id, dry_run=args.dry_run)
+        mode = "dry-run" if args.dry_run else "wrote"
+        print(f"rebuild B06 ({mode}): sessions={sc} executions={ex}")
+        return 0
+
     if args.generate_all:
         from hemo_gen.generate_all import generate_all_patients
 
@@ -140,6 +180,7 @@ def main(argv: list[str] | None = None) -> int:
             span=args.span,
             dry_run=args.dry_run,
             force_b01=args.force_b01,
+            force_meds=args.force_meds,
             post_steps=not args.skip_post_steps,
         )
         print(
@@ -168,6 +209,7 @@ def main(argv: list[str] | None = None) -> int:
         seed=seed,
         dry_run=args.dry_run,
         force_b01=args.force_b01,
+        force_meds=args.force_meds,
     )
     result = run_generator(cfg)
     if not args.dry_run:

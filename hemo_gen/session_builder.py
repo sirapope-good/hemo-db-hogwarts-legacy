@@ -11,6 +11,7 @@ from hemo_gen.config import (
     DURATION_HOURS,
     MACHINE_MODEL,
     WARD,
+    WARD_BY_UNIT,
     CREATED_BY,
 )
 from hemo_gen.prescription import DialysisPrescriptionRow
@@ -147,7 +148,7 @@ def build_session(
         to_sql_timestamp(completed),
         "0",
         sql_bool(False),
-        sql_quote(WARD),
+        sql_quote(WARD_BY_UNIT.get(profile.patient.unit_id, WARD)),
         sql_nullable_str(bed),
         to_sql_timestamp(cycle_start),
         to_sql_timestamp(cycle_end),
