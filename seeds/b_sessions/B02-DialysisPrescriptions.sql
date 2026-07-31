@@ -1799,3 +1799,241 @@ VALUES
 ('3960879b-b808-4af4-8b8c-205a068c2153','2026-07-23 06:55:29+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 06:55:29+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6902008',FALSE,0,NULL,NULL,NULL,NULL,47,NULL,230,480,300,'05:20:00',1,'2026-05-28 12:00:00+00','Heparin',1500,1300,600.0,NULL,NULL,NULL,NULL,2,2,30,138,35.5,470,'LT AVF',-2,'F160',2.1,NULL,NULL,'Hogwarts gen 6902008'),
 ('910226ab-18e0-44c2-9d91-3a2e2f4c18aa','2026-07-23 06:55:29+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 06:55:29+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6902008',FALSE,0,NULL,NULL,NULL,NULL,46,NULL,210,480,300,'05:20:00',1,'2026-06-25 12:00:00+00','Heparin',1500,1300,600.0,NULL,NULL,NULL,NULL,2,2,30,138,35.5,480,'LT AVF',-2,'F160',2.1,NULL,NULL,'Hogwarts gen 6902008'),
 ('5f37ece0-5d2c-467d-8f61-4e19028c8c8f','2026-07-23 06:55:29+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 06:55:29+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6902008',FALSE,0,NULL,NULL,NULL,NULL,44,NULL,200,480,300,'05:20:00',1,'2026-07-09 12:00:00+00','Heparin',1500,1300,600.0,NULL,NULL,NULL,NULL,2,2,30,138,35.5,470,'LT AVF',-2,'F160',2.1,NULL,NULL,'Hogwarts gen 6902008');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('ada09ee5-981f-4cd6-ac88-84137007abec','2026-07-23 07:28:49+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:28:49+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'213860',FALSE,0,NULL,NULL,NULL,NULL,65,NULL,280,480,300,'05:20:00',1,'2026-07-22 05:00:00+00','Heparin',1500,1000,700.0,NULL,NULL,NULL,NULL,2,2,30,138,36.0,500,'LT AVF',-2,'FDX-21',2.1,NULL,NULL,'Hogwarts gen 213860');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('b4921b78-bf0e-4b79-af74-346a1ea5d4c6','2026-07-23 07:28:49+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:28:49+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'48324',FALSE,0,NULL,NULL,NULL,NULL,79,NULL,280,480,300,'05:20:00',1,'2026-07-22 05:00:00+00','Heparin',1500,1400,500.0,NULL,NULL,NULL,NULL,2,2,30,138,35.0,500,'LT AVF',-2,'FDY-21',2.1,NULL,NULL,'Hogwarts gen 48324');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('1d678c23-e607-4cd5-9951-e9b6b43605e5','2026-07-23 07:28:50+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:28:50+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'670001117',FALSE,0,NULL,NULL,NULL,NULL,72,NULL,290,480,300,'05:20:00',1,'2026-07-22 09:00:00+00','Heparin',1600,1200,700.0,NULL,NULL,NULL,NULL,2,2,31,139,36.0,510,'RT AVG',-2,'FDX-21',2.1,NULL,NULL,'Hogwarts gen 670001117');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('78c2f444-b127-4426-86d7-2d55f020a9d5','2026-07-23 07:28:51+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:28:51+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6802588',FALSE,0,NULL,NULL,NULL,NULL,67,NULL,280,480,300,'05:20:00',1,'2026-07-22 13:00:00+00','Heparin',1500,1300,600.0,NULL,NULL,NULL,NULL,2,2,30,138,35.5,500,'LT AVF',-2,'F160',2.1,NULL,NULL,'Hogwarts gen 6802588');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('fcbe046a-7dc9-462b-ac23-c67a6e061f58','2026-07-23 07:28:52+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:28:52+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6411508',FALSE,0,NULL,NULL,NULL,NULL,62,NULL,280,480,300,'05:20:00',1,'2026-07-21 09:00:00+00','Heparin',1500,1300,600.0,NULL,NULL,NULL,NULL,2,2,30,138,35.5,500,'LT AVF',-2,'F160',2.1,NULL,NULL,'Hogwarts gen 6411508');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('ae13a28f-d3a8-4271-aefb-befafb1d1874','2026-07-23 07:28:53+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:28:53+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6505315',FALSE,0,NULL,NULL,NULL,NULL,70,NULL,270,480,300,'05:20:00',1,'2026-07-20 09:00:00+00','Clexane',330,28,96.0,NULL,NULL,NULL,NULL,2,2,33,141,35.5,530,'Double Lumen',-2,'F160',2.1,NULL,NULL,'Hogwarts gen 6505315');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('af147baf-fc3f-4d54-8ecd-164ce7dc2824','2026-07-23 07:28:53+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:28:53+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6455308',FALSE,0,NULL,NULL,NULL,NULL,63,NULL,280,480,300,'05:20:00',1,'2026-07-22 13:00:00+00','Heparin',1500,1300,600.0,NULL,NULL,NULL,NULL,2,2,30,138,35.5,500,'LT AVF',-2,'F160',2.1,NULL,NULL,'Hogwarts gen 6455308');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('530257d4-3327-4ef7-a588-8773550123fe','2026-07-23 07:28:54+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:28:54+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6602502',FALSE,0,NULL,NULL,NULL,NULL,57,NULL,300,480,300,'05:20:00',1,'2026-07-22 13:00:00+00','Clexane',320,30,95.0,NULL,NULL,NULL,NULL,2,2,32,140,35.0,520,'Perm Cath',-2,'FDY-21',2.1,NULL,NULL,'Hogwarts gen 6602502');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('4babe655-3132-4f75-b8be-fa1fcf0cfb93','2026-07-23 07:28:55+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:28:55+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6603132',FALSE,0,NULL,NULL,NULL,NULL,61,NULL,280,480,300,'05:20:00',1,'2026-07-21 17:00:00+00','Heparin',1500,1200,500.0,NULL,NULL,NULL,NULL,2,2,30,138,35.0,500,'LT AVF',-2,'FDY-21',2.1,NULL,NULL,'Hogwarts gen 6603132');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('7eb79248-a9f2-4cfc-bd01-065ce3681adc','2026-07-23 07:28:56+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:28:56+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6802616',FALSE,0,NULL,NULL,NULL,NULL,71,NULL,240,480,300,'05:20:00',1,'2026-07-22 09:00:00+00','Heparin',1500,1100,700.0,NULL,NULL,NULL,NULL,2,2,30,138,36.0,500,'LT AVF',-2,'FDX-21',2.1,NULL,NULL,'Hogwarts gen 6802616');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('899de6f5-8ac7-4b20-a336-551e4ac7c693','2026-07-23 07:28:57+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:28:57+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6508733',FALSE,0,NULL,NULL,NULL,NULL,62,NULL,290,480,300,'05:20:00',1,'2026-07-22 17:00:00+00','Heparin',1600,1300,700.0,NULL,NULL,NULL,NULL,2,2,31,139,36.0,510,'RT AVG',-2,'FDX-21',2.1,NULL,NULL,'Hogwarts gen 6508733');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('879e5153-065d-4f24-8a0e-5e39ae68063d','2026-07-23 07:28:57+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:28:57+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6512620',FALSE,0,NULL,NULL,NULL,NULL,75,NULL,280,480,300,'05:20:00',1,'2026-07-17 09:00:00+00','Heparin',1500,1000,600.0,NULL,NULL,NULL,NULL,2,2,30,138,35.5,500,'LT AVF',-2,'F160',2.1,NULL,NULL,'Hogwarts gen 6512620');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('1226515f-3c0e-4413-b8f6-9610fc21c1aa','2026-07-23 07:28:58+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:28:58+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6300865',FALSE,0,NULL,NULL,NULL,NULL,69,NULL,250,480,300,'05:20:00',1,'2026-07-22 05:00:00+00','Heparin',1600,1000,600.0,NULL,NULL,NULL,NULL,2,2,31,139,35.5,510,'RT AVG',-2,'F160',2.1,NULL,NULL,'Hogwarts gen 6300865');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('c19a104f-a723-471d-a533-a75cae792b6e','2026-07-23 07:28:59+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:28:59+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6519635',FALSE,0,NULL,NULL,NULL,NULL,65,NULL,270,480,300,'05:20:00',1,'2026-07-20 05:00:00+00','Clexane',330,28,97.0,NULL,NULL,NULL,NULL,2,2,33,141,36.0,530,'Double Lumen',-2,'FDX-21',2.1,NULL,NULL,'Hogwarts gen 6519635');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('829dad4b-8b3b-4524-b221-140471fe6952','2026-07-23 07:29:00+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:00+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6521515',FALSE,0,NULL,NULL,NULL,NULL,69,NULL,270,480,300,'05:20:00',1,'2026-07-22 09:00:00+00','Clexane',330,28,96.0,NULL,NULL,NULL,NULL,2,2,33,141,35.5,530,'Double Lumen',-2,'F160',2.1,NULL,NULL,'Hogwarts gen 6521515');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('6b589080-77fe-49c4-992f-321a3fbce264','2026-07-23 07:29:00+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:00+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6521637',FALSE,0,NULL,NULL,NULL,NULL,67,NULL,290,480,300,'05:20:00',1,'2026-07-21 17:00:00+00','Heparin',1600,1200,500.0,NULL,NULL,NULL,NULL,2,2,31,139,35.0,510,'RT AVG',-2,'FDY-21',2.1,NULL,NULL,'Hogwarts gen 6521637');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('a0dfc92e-198f-43c7-9ae5-0ae6cd69d8d3','2026-07-23 07:29:01+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:01+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6901001',FALSE,0,NULL,NULL,NULL,NULL,56,NULL,250,480,300,'05:20:00',1,'2026-07-21 05:00:00+00','Heparin',1600,1100,700.0,NULL,NULL,NULL,NULL,2,2,31,139,36.0,510,'RT AVG',-2,'FDX-21',2.1,NULL,NULL,'Hogwarts gen 6901001');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('83c29f09-410a-49e8-824c-637219ead284','2026-07-23 07:29:02+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:02+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6901002',FALSE,0,NULL,NULL,NULL,NULL,56,NULL,260,480,300,'05:20:00',1,'2026-07-22 13:00:00+00','Clexane',320,30,95.0,NULL,NULL,NULL,NULL,2,2,32,140,35.0,520,'Perm Cath',-2,'FDY-21',2.1,NULL,NULL,'Hogwarts gen 6901002');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('25d95566-fe8f-4788-9247-5bc378c124b5','2026-07-23 07:29:03+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:03+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6901003',FALSE,0,NULL,NULL,NULL,NULL,57,NULL,270,480,300,'05:20:00',1,'2026-07-22 05:00:00+00','Clexane',330,31,96.0,NULL,NULL,NULL,NULL,2,2,33,141,35.5,530,'Double Lumen',-2,'F160',2.1,NULL,NULL,'Hogwarts gen 6901003');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('3f951aed-3822-473b-aac9-465fa5f04d02','2026-07-23 07:29:03+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:03+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6901004',FALSE,0,NULL,NULL,NULL,NULL,58,NULL,280,480,300,'05:20:00',1,'2026-07-21 09:00:00+00','Heparin',1500,1400,700.0,NULL,NULL,NULL,NULL,2,2,30,138,36.0,500,'LT AVF',-2,'FDX-21',2.1,NULL,NULL,'Hogwarts gen 6901004');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('bc223726-a79d-40cc-af5e-e183884f5897','2026-07-23 07:29:04+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:04+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6901005',FALSE,0,NULL,NULL,NULL,NULL,59,NULL,290,480,300,'05:20:00',1,'2026-07-22 17:00:00+00','Heparin',1600,1000,500.0,NULL,NULL,NULL,NULL,2,2,31,139,35.0,510,'RT AVG',-2,'FDY-21',2.1,NULL,NULL,'Hogwarts gen 6901005');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('472682d6-28ca-4777-86b0-742f84b22de5','2026-07-23 07:29:05+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:05+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6901006',FALSE,0,NULL,NULL,NULL,NULL,60,NULL,300,480,300,'05:20:00',1,'2026-07-22 13:00:00+00','Clexane',320,29,96.0,NULL,NULL,NULL,NULL,2,2,32,140,35.5,520,'Perm Cath',-2,'F160',2.1,NULL,NULL,'Hogwarts gen 6901006');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('a1e78a2d-469d-4caa-93b4-5ae137cb5267','2026-07-23 07:29:06+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:06+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6901007',FALSE,0,NULL,NULL,NULL,NULL,62,NULL,310,480,300,'05:20:00',1,'2026-07-22 13:00:00+00','Clexane',330,30,97.0,NULL,NULL,NULL,NULL,2,2,33,141,36.0,530,'Double Lumen',-2,'FDX-21',2.1,NULL,NULL,'Hogwarts gen 6901007');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('d4975def-0b60-4834-8759-92a2c3db5fc9','2026-07-23 07:29:06+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:06+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6901008',FALSE,0,NULL,NULL,NULL,NULL,62,NULL,240,480,300,'05:20:00',1,'2026-07-22 17:00:00+00','Heparin',1500,1300,500.0,NULL,NULL,NULL,NULL,2,2,30,138,35.0,500,'LT AVF',-2,'FDY-21',2.1,NULL,NULL,'Hogwarts gen 6901008');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('35df8b66-1594-4174-9e91-84306c447ea3','2026-07-23 07:29:07+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:07+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6706476',FALSE,0,NULL,NULL,NULL,NULL,55,NULL,280,480,300,'05:20:00',1,'2026-07-22 12:00:00+00','Heparin',1500,1100,500.0,NULL,NULL,NULL,NULL,2,2,30,138,35.0,500,'LT AVF',-2,'FDY-21',2.1,NULL,NULL,'Hogwarts gen 6706476');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('503c9093-7969-4dae-bee3-b411d456b643','2026-07-23 07:29:08+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:08+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'361343',FALSE,0,NULL,NULL,NULL,NULL,73,NULL,310,480,300,'05:20:00',1,'2026-07-21 16:00:00+00','Clexane',330,31,97.0,NULL,NULL,NULL,NULL,2,2,33,141,36.0,530,'Double Lumen',-2,'FDX-21',2.1,NULL,NULL,'Hogwarts gen 361343');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('6a59e2fe-81b7-411e-b01f-5d4e699b8c08','2026-07-23 07:29:09+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:09+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6705071',FALSE,0,NULL,NULL,NULL,NULL,76,NULL,310,480,300,'05:20:00',1,'2026-07-22 20:00:00+00','Clexane',330,29,97.0,NULL,NULL,NULL,NULL,2,2,33,141,36.0,530,'Double Lumen',-2,'FDX-21',2.1,NULL,NULL,'Hogwarts gen 6705071');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('6a2a8354-51fa-49a2-b791-02aa79964ae4','2026-07-23 07:29:10+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:10+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6800776',FALSE,0,NULL,NULL,NULL,NULL,56,NULL,240,480,300,'05:20:00',1,'2026-07-22 20:00:00+00','Heparin',1500,1100,600.0,NULL,NULL,NULL,NULL,2,2,30,138,35.5,500,'LT AVF',-2,'F160',2.1,NULL,NULL,'Hogwarts gen 6800776');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('b4c0b4ff-e23c-4a94-aed0-803694976646','2026-07-23 07:29:11+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:11+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6706961',FALSE,0,NULL,NULL,NULL,NULL,65,NULL,250,480,300,'05:20:00',1,'2026-07-22 20:00:00+00','Heparin',1600,1100,700.0,NULL,NULL,NULL,NULL,2,2,31,139,36.0,510,'RT AVG',-2,'FDX-21',2.1,NULL,NULL,'Hogwarts gen 6706961');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('180f8cc7-459b-4e4e-9cce-a7227d544da2','2026-07-23 07:29:12+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:12+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6902001',FALSE,0,NULL,NULL,NULL,NULL,56,NULL,250,480,300,'05:20:00',1,'2026-07-22 20:00:00+00','Heparin',1600,1100,500.0,NULL,NULL,NULL,NULL,2,2,31,139,35.0,510,'RT AVG',-2,'FDY-21',2.1,NULL,NULL,'Hogwarts gen 6902001');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('cd3a48a6-e1e7-4053-9fcb-5040425a3262','2026-07-23 07:29:13+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:13+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6902002',FALSE,0,NULL,NULL,NULL,NULL,57,NULL,260,480,300,'05:20:00',1,'2026-07-21 20:00:00+00','Clexane',320,30,96.0,NULL,NULL,NULL,NULL,2,2,32,140,35.5,520,'Perm Cath',-2,'F160',2.1,NULL,NULL,'Hogwarts gen 6902002');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('90c0bae3-bf2b-4682-812e-7f64041e6ac2','2026-07-23 07:29:15+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:15+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6902006',FALSE,0,NULL,NULL,NULL,NULL,60,NULL,300,480,300,'05:20:00',1,'2026-07-22 12:00:00+00','Clexane',320,29,97.0,NULL,NULL,NULL,NULL,2,2,32,140,36.0,520,'Perm Cath',-2,'FDX-21',2.1,NULL,NULL,'Hogwarts gen 6902006');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('44531b67-74e1-40e4-9def-563958840288','2026-07-23 07:29:16+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:16+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6902007',FALSE,0,NULL,NULL,NULL,NULL,61,NULL,310,480,300,'05:20:00',1,'2026-07-22 16:00:00+00','Clexane',330,30,95.0,NULL,NULL,NULL,NULL,2,2,33,141,35.0,530,'Double Lumen',-2,'FDY-21',2.1,NULL,NULL,'Hogwarts gen 6902007');
+
+-- hemo_gen DialysisPrescriptions
+INSERT INTO local."DialysisPrescriptions"(
+	"Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "PatientId", "Temporary", "Mode", "HdfType", "SubstituteVolume", "IvSupplementVolume", "IvSupplementPosition", "DryWeight", "ExcessFluidRemovalAmount", "BloodFlow", "BloodTransfusion", "ExtraFluid", "Duration", "Frequency", "AdministeredDate", "Anticoagulant", "AcPerSession", "InitialAmount", "MaintainAmount", "ReasonForRefraining", "AcPerSessionMl", "InitialAmountMl", "MaintainAmountMl", "DialysateK", "DialysateCa", "HCO3", "Na", "DialysateTemperature", "DialysateFlowRate", "BloodAccessRoute", "DialyzerId", "Dialyzer", "DialyzerSurfaceArea", "AvgDialyzerReuse", "DialysisNurse", "Note"
+)
+VALUES
+('132406f8-3fdf-4f95-aba0-ad70a6d1da2c','2026-07-23 07:29:16+00','866dabc4-6501-44d2-a0e5-65da9c45a46e','2026-07-23 07:29:16+00','866dabc4-6501-44d2-a0e5-65da9c45a46e',TRUE,'6902008',FALSE,0,NULL,NULL,NULL,NULL,63,NULL,240,480,300,'05:20:00',1,'2026-07-21 12:00:00+00','Heparin',1500,1300,600.0,NULL,NULL,NULL,NULL,2,2,30,138,35.5,500,'LT AVF',-2,'F160',2.1,NULL,NULL,'Hogwarts gen 6902008');

@@ -13,10 +13,10 @@
       }
     },
     "213860": {
-      "last_treatment_no": 95,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 30,
-      "sessions_on_current_rx": 3,
+      "last_treatment_no": 96,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 31,
+      "sessions_on_current_rx": 4,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "eprex": "084e19ca-fdda-4896-b87a-1c988eefeafc",
@@ -26,10 +26,10 @@
       }
     },
     "48324": {
-      "last_treatment_no": 112,
-      "last_session_date": "2026-07-21",
-      "dialysis_prescription_count": 35,
-      "sessions_on_current_rx": 1,
+      "last_treatment_no": 113,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 36,
+      "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "binocrit": "9c6f77cc-f688-4f99-a12d-643fbfa7be6e",
@@ -38,10 +38,10 @@
       }
     },
     "670001117": {
-      "last_treatment_no": 99,
-      "last_session_date": "2026-07-21",
-      "dialysis_prescription_count": 32,
-      "sessions_on_current_rx": 1,
+      "last_treatment_no": 100,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 33,
+      "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
         "espogen": "0473c6f9-2b0d-4670-8553-9c9e419183ed",
@@ -63,10 +63,10 @@
       }
     },
     "6505315": {
-      "last_treatment_no": 103,
-      "last_session_date": "2026-07-13",
-      "dialysis_prescription_count": 31,
-      "sessions_on_current_rx": 1,
+      "last_treatment_no": 104,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 32,
+      "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
         "eprex": "fe0ab65d-e3a2-464e-b961-d5a7678d691c",
@@ -76,10 +76,10 @@
       }
     },
     "6455308": {
-      "last_treatment_no": 100,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 31,
-      "sessions_on_current_rx": 3,
+      "last_treatment_no": 101,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 32,
+      "sessions_on_current_rx": 4,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "binocrit": "382013dc-69df-4443-b47b-17264ec1f985",
@@ -88,10 +88,10 @@
       }
     },
     "6602502": {
-      "last_treatment_no": 90,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 28,
-      "sessions_on_current_rx": 3,
+      "last_treatment_no": 91,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 29,
+      "sessions_on_current_rx": 4,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "espogen": "e45fdeb6-391e-4eb0-a972-71d26a2b703d",
@@ -99,10 +99,10 @@
       }
     },
     "6603132": {
-      "last_treatment_no": 101,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 31,
-      "sessions_on_current_rx": 1,
+      "last_treatment_no": 102,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 32,
+      "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "binocrit": "34cf3a2b-e74b-4606-8c63-43903bfbba7a",
@@ -123,10 +123,10 @@
       }
     },
     "6521515": {
-      "last_treatment_no": 94,
-      "last_session_date": "2026-07-21",
-      "dialysis_prescription_count": 27,
-      "sessions_on_current_rx": 4,
+      "last_treatment_no": 95,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 28,
+      "sessions_on_current_rx": 5,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "binocrit": "66c3e583-602b-4163-b0c1-50dc4b05fcb8",
@@ -135,10 +135,10 @@
       }
     },
     "6521637": {
-      "last_treatment_no": 101,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 32,
-      "sessions_on_current_rx": 2,
+      "last_treatment_no": 102,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 33,
+      "sessions_on_current_rx": 3,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "binocrit": "44657a25-0dfa-45ad-ab4f-c1b353747da9",
@@ -149,10 +149,10 @@
       }
     },
     "6508733": {
-      "last_treatment_no": 96,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 30,
-      "sessions_on_current_rx": 3,
+      "last_treatment_no": 97,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 31,
+      "sessions_on_current_rx": 4,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "eprex": "8af4c64a-6f35-4ab8-8a97-970e498c40b3",
@@ -161,10 +161,10 @@
       }
     },
     "6512620": {
-      "last_treatment_no": 107,
-      "last_session_date": "2026-07-16",
-      "dialysis_prescription_count": 34,
-      "sessions_on_current_rx": 1,
+      "last_treatment_no": 109,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 35,
+      "sessions_on_current_rx": 3,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "eprex": "60d4710f-1b94-4ef9-8efc-3ecb12defa41",
@@ -174,10 +174,10 @@
       }
     },
     "6300865": {
-      "last_treatment_no": 107,
-      "last_session_date": "2026-07-21",
-      "dialysis_prescription_count": 33,
-      "sessions_on_current_rx": 2,
+      "last_treatment_no": 108,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 34,
+      "sessions_on_current_rx": 3,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "eprex": "6454fd00-f8ed-464d-84b3-4171d8f2c0f0",
@@ -188,10 +188,10 @@
       }
     },
     "6519635": {
-      "last_treatment_no": 94,
-      "last_session_date": "2026-07-16",
-      "dialysis_prescription_count": 29,
-      "sessions_on_current_rx": 3,
+      "last_treatment_no": 95,
+      "last_session_date": "2026-07-20",
+      "dialysis_prescription_count": 30,
+      "sessions_on_current_rx": 4,
       "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
         "recormon": "2be25194-567d-4e13-b836-51edf04bb425",
@@ -201,10 +201,10 @@
       }
     },
     "6800776": {
-      "last_treatment_no": 99,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 30,
-      "sessions_on_current_rx": 1,
+      "last_treatment_no": 100,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 31,
+      "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "recormon": "c1e496aa-2acb-4ad2-96c4-7ed626220a8d",
@@ -214,10 +214,10 @@
       }
     },
     "6802616": {
-      "last_treatment_no": 98,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 30,
-      "sessions_on_current_rx": 1,
+      "last_treatment_no": 99,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 31,
+      "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "recormon": "a6d98866-873d-4673-a0f9-c92f5c0feba9",
@@ -227,10 +227,10 @@
       }
     },
     "6802588": {
-      "last_treatment_no": 99,
-      "last_session_date": "2026-07-21",
-      "dialysis_prescription_count": 31,
-      "sessions_on_current_rx": 2,
+      "last_treatment_no": 100,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 32,
+      "sessions_on_current_rx": 3,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "espogen": "932f3600-a60b-424d-8c04-e128841ab9d2",
@@ -240,10 +240,10 @@
       }
     },
     "6411508": {
-      "last_treatment_no": 102,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 32,
-      "sessions_on_current_rx": 1,
+      "last_treatment_no": 103,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 33,
+      "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "nesp": "ac91a835-967f-4e56-a96e-1f3defdfb91b",
@@ -302,10 +302,10 @@
       }
     },
     "6706961": {
-      "last_treatment_no": 59,
-      "last_session_date": "2026-07-21",
-      "dialysis_prescription_count": 19,
-      "sessions_on_current_rx": 1,
+      "last_treatment_no": 60,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 20,
+      "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
         "espogen": "e50d354c-f5fb-40f0-8e02-7c00cb74aee8",
@@ -325,10 +325,10 @@
       }
     },
     "6706476": {
-      "last_treatment_no": 104,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 32,
-      "sessions_on_current_rx": 2,
+      "last_treatment_no": 105,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 33,
+      "sessions_on_current_rx": 3,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "eprex": "9c679b86-23b9-4321-a073-022f21075545",
@@ -338,10 +338,10 @@
       }
     },
     "361343": {
-      "last_treatment_no": 111,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 35,
-      "sessions_on_current_rx": 1,
+      "last_treatment_no": 112,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 36,
+      "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
         "recormon": "d2ac036e-7b5e-4168-b219-2b466bbfc288",
@@ -351,10 +351,10 @@
       }
     },
     "6705071": {
-      "last_treatment_no": 97,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 29,
-      "sessions_on_current_rx": 4,
+      "last_treatment_no": 98,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 30,
+      "sessions_on_current_rx": 5,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "espogen": "53c07009-f0d8-40d8-a3c9-bee886d865e4",
@@ -376,10 +376,10 @@
       }
     },
     "6901001": {
-      "last_treatment_no": 57,
-      "last_session_date": "2026-07-16",
-      "dialysis_prescription_count": 17,
-      "sessions_on_current_rx": 1,
+      "last_treatment_no": 58,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 18,
+      "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "binocrit": "016e5d7f-fb41-4215-a746-7a97f7148d80",
@@ -388,10 +388,10 @@
       }
     },
     "6901002": {
-      "last_treatment_no": 62,
-      "last_session_date": "2026-07-21",
-      "dialysis_prescription_count": 19,
-      "sessions_on_current_rx": 3,
+      "last_treatment_no": 63,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 20,
+      "sessions_on_current_rx": 4,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "espogen": "582b0c8e-d3a5-40ef-9427-16a402953acd",
@@ -400,10 +400,10 @@
       }
     },
     "6901003": {
-      "last_treatment_no": 48,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 14,
-      "sessions_on_current_rx": 3,
+      "last_treatment_no": 49,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 15,
+      "sessions_on_current_rx": 4,
       "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
         "eprex": "e80b2c5e-c7ab-4aab-affa-a6b028e68617",
@@ -412,10 +412,10 @@
       }
     },
     "6901004": {
-      "last_treatment_no": 51,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 15,
-      "sessions_on_current_rx": 2,
+      "last_treatment_no": 52,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 16,
+      "sessions_on_current_rx": 3,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "eprex": "643525f5-e4c6-4cc4-8641-a238cdd0983a",
@@ -425,10 +425,10 @@
       }
     },
     "6901005": {
-      "last_treatment_no": 50,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 15,
-      "sessions_on_current_rx": 1,
+      "last_treatment_no": 51,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 16,
+      "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
         "eprex": "3816e86c-4d8f-4af3-8035-fa1d52e76f49",
@@ -439,10 +439,10 @@
       }
     },
     "6901006": {
-      "last_treatment_no": 50,
-      "last_session_date": "2026-07-15",
-      "dialysis_prescription_count": 14,
-      "sessions_on_current_rx": 1,
+      "last_treatment_no": 51,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 15,
+      "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
         "espogen": "bb0d4fb5-29fa-4d15-80eb-cc300f02d073",
@@ -451,10 +451,10 @@
       }
     },
     "6901007": {
-      "last_treatment_no": 56,
-      "last_session_date": "2026-07-21",
-      "dialysis_prescription_count": 16,
-      "sessions_on_current_rx": 2,
+      "last_treatment_no": 57,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 17,
+      "sessions_on_current_rx": 3,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "recormon": "d939fae2-43d1-4cd3-be28-baaf04943802",
@@ -462,10 +462,10 @@
       }
     },
     "6901008": {
-      "last_treatment_no": 49,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 15,
-      "sessions_on_current_rx": 1,
+      "last_treatment_no": 50,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 16,
+      "sessions_on_current_rx": 2,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "espogen": "2b02f5c8-4f1e-4915-b98b-ac7b53f749fb",
@@ -474,10 +474,10 @@
       }
     },
     "6902001": {
-      "last_treatment_no": 50,
-      "last_session_date": "2026-07-21",
-      "dialysis_prescription_count": 15,
-      "sessions_on_current_rx": 2,
+      "last_treatment_no": 51,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 16,
+      "sessions_on_current_rx": 3,
       "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
         "binocrit": "bd25d4d0-35fd-47f4-a337-55147d8a5c37",
@@ -487,10 +487,10 @@
       }
     },
     "6902002": {
-      "last_treatment_no": 51,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 15,
-      "sessions_on_current_rx": 3,
+      "last_treatment_no": 52,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 16,
+      "sessions_on_current_rx": 4,
       "max_sessions_on_rx": 4,
       "medicine_prescription_ids": {
         "eprex": "bbc5cf86-d145-4a5f-ba7b-d5751d1b8a9c",
@@ -537,10 +537,10 @@
       }
     },
     "6902006": {
-      "last_treatment_no": 63,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 19,
-      "sessions_on_current_rx": 3,
+      "last_treatment_no": 64,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 20,
+      "sessions_on_current_rx": 4,
       "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
         "binocrit": "4d16c27a-9976-4c25-af93-b24c1c9bb18e",
@@ -549,10 +549,10 @@
       }
     },
     "6902007": {
-      "last_treatment_no": 51,
-      "last_session_date": "2026-07-20",
-      "dialysis_prescription_count": 15,
-      "sessions_on_current_rx": 2,
+      "last_treatment_no": 52,
+      "last_session_date": "2026-07-22",
+      "dialysis_prescription_count": 16,
+      "sessions_on_current_rx": 3,
       "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
         "nesp": "6345c055-1ec2-425d-998f-4e799269af69",
@@ -561,10 +561,10 @@
       }
     },
     "6902008": {
-      "last_treatment_no": 57,
-      "last_session_date": "2026-07-16",
-      "dialysis_prescription_count": 16,
-      "sessions_on_current_rx": 2,
+      "last_treatment_no": 58,
+      "last_session_date": "2026-07-21",
+      "dialysis_prescription_count": 17,
+      "sessions_on_current_rx": 3,
       "max_sessions_on_rx": 3,
       "medicine_prescription_ids": {
         "espogen": "27518c0a-132e-4b0f-8f8f-c5d99b743546",

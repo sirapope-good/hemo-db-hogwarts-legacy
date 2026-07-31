@@ -1,5 +1,5 @@
 {
-  "_comment": "Templates use Medicine.Id from medicines.csv (MedType 1=ESA, 2=IV iron). ExpireDate is never set on create.",
+  "_comment": "Templates use Medicine.Id from backend Seeds/medicines.csv (MedType 1=ESA, 2=IV iron). ExpireDate is never set on create. After HEM-1057 dedupe: Calcitriol=-151 (not -206), Calcium carbonate=-126 (not -200).",
   "templates": {
     "espogen": {
       "medicine_id": -234,
@@ -128,7 +128,7 @@
       "execute_chance": 0.0
     },
     "calcium_carbonate": {
-      "medicine_id": -200,
+      "medicine_id": -126,
       "role": "oral_ckd",
       "override_dose_amount": 500,
       "override_unit": "mg",
@@ -170,7 +170,7 @@
       "execute_chance": 0.0
     },
     "calcitriol": {
-      "medicine_id": -206,
+      "medicine_id": -151,
       "role": "oral_ckd",
       "override_dose_amount": 0.25,
       "override_unit": "mcg",

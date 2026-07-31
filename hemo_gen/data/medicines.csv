@@ -186,45 +186,37 @@ Id,DoseAmount,MedType,Name,PieceUnit,StrengthType
 -185,50,0,Glucose 50%,ml,0
 -186,25,0,Dextrose 50%,g,0
 -187,5,0,Vitamin K,mg,0
--188,200,0,Ferrous sulfate,mg,0
+-188,200,2,Ferrous sulfate,mg,0
 -189,5,0,Folic acid,mg,0
 -190,500,0,Tranexamic acid,mg,0
 -191,100,2,Iron sucrose,mg,0
 -192,500,2,Ferric carboxymaltose,mg,0
 -193,,2,Iron dextran,,0
 -194,,2,Sodium ferric gluconate,,0
--195,200,0,Ferrous sulfate,mg,0
--196,200,0,Ferrous fumarate,mg,0
--197,300,0,Ferrous gluconate,mg,0
--198,100,0,Iron polymaltose,Fe,0
--199,5,0,Folic acid,mg,0
--200,500,0,Calcium carbonate,mg,0
+-196,200,2,Ferrous fumarate,mg,0
+-197,300,2,Ferrous gluconate,mg,0
+-198,100,2,Iron polymaltose,Fe,0
 -201,667,0,Calcium acetate,mg,0
 -202,800,0,Sevelamer carbonate,mg,0
 -203,800,0,Sevelamer HCl,mg,0
 -204,500,0,Lanthanum carbonate,mg,0
 -205,,0,Sucroferric oxyhydroxide,,0
--206,0.25,0,Calcitriol,mcg,0
 -207,0.25,0,Alfacalcidol,mcg,0
 -208,,0,Paricalcitol,,0
 -209,,0,Cholecalciferol,,0
 -210,,0,Ergocalciferol,,0
 -211,30,0,Cinacalcet,,0
 -212,,0,Etelcalcetide,,0
--213,10,0,Potassium citrate,mEq,0
 -214,,0,Insulin + glucose,,1
 -215,,0,Salbutamol neb,,0
 -216,,0,Sodium polystyrene sulfonate,,0
 -217,,0,Calcium polystyrene sulfonate,,0
 -218,,0,Patiromer,,0
 -219,,0,Sodium zirconium cyclosilicate,,0
--220,1,0,Magnesium sulfate,g,0
 -221,1,0,Bumetanide,mg,0
 -222,5,0,Amiloride,mg,0
 -223,,0,Metolazone,,0
--224,100,0,Allopurinol,mg,0
 -225,40,0,Febuxostat,mg,0
--226,0.5,0,Colchicine,mg,0
 -227,,0,Heparin,,0
 -228,,0,LMWH,,0
 -229,,0,Protamine,,0
