@@ -35,6 +35,8 @@ B03_COLUMNS = [
     "AvShunt_ANeedleSize", "AvShunt_VNeedleSize", "AvShunt_ANeedleTimes", "AvShunt_VNeedleTimes",
     "DoctorConsent", "ShiftSectionId", "NursesInShift", "StaffAllocation", "TreatmentNo",
     "DoctorId", "AutoStockId", "SentPDF",
+    "CompletedInEssentialMode", "IsHistoricalEntry", "ReviewStatus", "ReviewType",
+    "DoctorMonthlyVisitApproved", "NurseSessionOutcome",
 ]
 
 
@@ -199,6 +201,12 @@ def build_session(
         sql_nullable_str(profile.patient.doctor_id),
         "NULL",
         sql_bool(False),
+        sql_bool(False),
+        sql_bool(False),
+        "0",
+        "0",
+        sql_bool(True),
+        "0",
     ]
     return BuiltSession(
         hemo_id=hemo_id,
