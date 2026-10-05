@@ -26,6 +26,7 @@ A_FILES = [
     "09-ScheduleMeta.sql",
     "10-ShiftMeta.sql",
     "11-SectionSlotPatient.sql",
+    "12-HrEmployees.sql",
 ]
 
 # FK-safe order (same as scripts/seed_b.bat)

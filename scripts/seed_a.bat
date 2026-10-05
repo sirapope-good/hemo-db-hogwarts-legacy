@@ -42,6 +42,11 @@ call :exec_sql "%SEED_DIR%\10-ShiftMeta.sql"
 call :exec_sql "%SEED_DIR%\11-SectionSlotPatient.sql"
 
 echo.
+echo [STEP 4] HR employees for the same HemoPro users...
+echo ------------------------------------------------------------
+call :exec_sql "%SEED_DIR%\12-HrEmployees.sql"
+
+echo.
 echo %B%============================================================%W%
 if %TOTAL_ERRORS% equ 0 (
     echo   RESULT: %G%[SUCCESS] All scripts passed.%W%
