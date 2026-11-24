@@ -12,7 +12,7 @@ from hemo_gen.sql_io import sql_bool, sql_quote, to_sql_timestamp
 
 B06_COLUMNS = [
     "Id", "Created", "CreatedBy", "Updated", "UpdatedBy", "IsActive", "HemodialysisId",
-    "Timestamp", "Type", "IsExecuted", "CoSign", "PrescriptionId", "OverrideRoute", "Quantity", "LotNo",
+    "Timestamp", "Type", "IsExecuted", "PrescriptionId", "OverrideRoute", "Quantity", "LotNo",
 ]
 
 
@@ -41,7 +41,6 @@ def build_medicine_execution(
         to_sql_timestamp(exec_time),
         "0",
         sql_bool(True),
-        "NULL",
         sql_quote(medicine_prescription_id),
         str(override_route),
         "1",

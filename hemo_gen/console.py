@@ -3,7 +3,7 @@
 Usage:
   python -m hemo_gen.console
   python -m hemo_gen.console --status
-  python -m hemo_gen.console --run a,c,b --yes
+  python -m hemo_gen.console --run h,a,c,b --yes
   python -m hemo_gen.console --extend
   python -m hemo_gen.console --extend --patient-id 6505315 --dry-run
 """
@@ -90,7 +90,7 @@ def print_header(style: Style, cfg: DbConfig) -> None:
     print(style.bold("=" * 60))
     print(
         f"  DB  container={style.cyan(cfg.container)}  "
-        f"user={cfg.user}  database={cfg.database}"
+        f"user={cfg.user}  database={cfg.database}  master={cfg.master_database}"
     )
     print(f"  root={style.dim(str(repo_root()))}")
     print()
@@ -135,7 +135,7 @@ def print_status(style: Style, status: DbStatus) -> None:
 
     print(style.green("  DB status: OK (docker + psql)"))
     print()
-    for key in ("a", "b", "c"):
+    for key in ("a", "b", "c", "h"):
         g = status.groups[key]
         flag = style.yellow("POPULATED") if g.populated else style.dim("empty/missing")
         print(f"  {style.bold(g.label)}  [{flag}]")
@@ -150,8 +150,13 @@ def print_status(style: Style, status: DbStatus) -> None:
 
 
 def print_selection(style: Style, selected: dict[str, bool]) -> None:
-    print(style.bold("  Selected seeds (execution order A → C → B):"))
-    for key, label in (("a", "A — Core"), ("b", "B — Sessions"), ("c", "C — Stock")):
+    print(style.bold("  Selected seeds (execution order H → A → C → B):"))
+    for key, label in (
+        ("a", "A — Core"),
+        ("b", "B — Sessions"),
+        ("c", "C — Stock"),
+        ("h", "H — HemoAdmin (good / nott)"),
+    ):
         mark = style.green("[x]") if selected[key] else style.dim("[ ]")
         print(f"    {mark} {label}")
     print()
@@ -302,7 +307,7 @@ def extend_submenu(style: Style) -> None:
 def interactive_loop() -> int:
     style = Style()
     cfg = DbConfig.load()
-    selected = {"a": True, "b": True, "c": True}
+    selected = {"a": True, "b": True, "c": True, "h": False}
 
     while True:
         print_header(style, cfg)
@@ -313,7 +318,7 @@ def interactive_loop() -> int:
         print_selection(style, selected)
 
         print("  Menu:")
-        print("    1) Toggle A   2) Toggle B   3) Toggle C")
+        print("    1) Toggle A   2) Toggle B   3) Toggle C   0) Toggle H")
         print("    4) Refresh status")
         print("    5) Execute selected seeds (SQL into DB)")
         print("    6) Select A only / 7) Select all / 8) Select none")
@@ -331,14 +336,16 @@ def interactive_loop() -> int:
             selected["b"] = not selected["b"]
         elif choice == "3":
             selected["c"] = not selected["c"]
+        elif choice == "0":
+            selected["h"] = not selected["h"]
         elif choice == "4":
             continue
         elif choice == "6":
-            selected = {"a": True, "b": False, "c": False}
+            selected = {"a": True, "b": False, "c": False, "h": False}
         elif choice == "7":
-            selected = {"a": True, "b": True, "c": True}
+            selected = {"a": True, "b": True, "c": True, "h": True}
         elif choice == "8":
-            selected = {"a": False, "b": False, "c": False}
+            selected = {"a": False, "b": False, "c": False, "h": False}
         elif choice == "9":
             extend_submenu(style)
         elif choice == "5":
@@ -417,10 +424,10 @@ def execute_with_confirm(
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
-        description="Hogwarts interactive seed console (A/B/C + extend sessions + DB status)"
+        description="Hogwarts interactive seed console (A/B/C/H + extend sessions + DB status)"
     )
     p.add_argument("--status", action="store_true", help="Print DB + freshness status and exit")
-    p.add_argument("--run", metavar="GROUPS", help="Non-interactive seed run, e.g. a,c,b")
+    p.add_argument("--run", metavar="GROUPS", help="Non-interactive seed run, e.g. h,a,c,b")
     p.add_argument("--extend", action="store_true", help="Extend B-group through yesterday")
     p.add_argument("--patient-id", help="With --extend: one patient only")
     p.add_argument("--dry-run", action="store_true", help="With --extend: summarize only")

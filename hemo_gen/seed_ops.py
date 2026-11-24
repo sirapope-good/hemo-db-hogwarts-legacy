@@ -6,7 +6,7 @@ import os
 import re
 import shutil
 import subprocess
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
 
 from hemo_gen.config import a_core_dir, b_sessions_dir, c_stock_dir, repo_root
@@ -47,6 +47,11 @@ C_FILES = [
     "C04-AutoStock-MedicalSupplies.sql",
 ]
 
+# Master DB (hemo-master), not the tenant schema.
+H_FILES = [
+    "00-AdminUsers.sql",
+]
+
 
 @dataclass(frozen=True)
 class DbConfig:
@@ -54,6 +59,7 @@ class DbConfig:
     user: str = "postgres"
     database: str = "hemopro-local"
     password: str = "your_password_here"
+    master_database: str = "hemo-master"
 
     @classmethod
     def load(cls, root: Path | None = None) -> DbConfig:
@@ -63,6 +69,7 @@ class DbConfig:
             "user": "postgres",
             "database": "hemopro-local",
             "password": "your_password_here",
+            "master_database": "hemo-master",
         }
         # Optional KEY=VALUE file (preferred over parsing .bat)
         env_file = root / "scripts" / "db.env"
@@ -81,12 +88,15 @@ class DbConfig:
             values["database"] = os.environ["HEMO_DB_NAME"]
         if os.environ.get("PGPASSWORD"):
             values["password"] = os.environ["PGPASSWORD"]
+        if os.environ.get("HEMO_MASTER_DB_NAME"):
+            values["master_database"] = os.environ["HEMO_MASTER_DB_NAME"]
 
         return cls(
             container=values["container"],
             user=values["user"],
             database=values["database"],
             password=values["password"],
+            master_database=values["master_database"],
         )
 
 
@@ -97,6 +107,7 @@ def _parse_env_file(path: Path) -> dict[str, str]:
         "HEMO_DB_USER": "user",
         "HEMO_DB_NAME": "database",
         "PGPASSWORD": "password",
+        "HEMO_MASTER_DB_NAME": "master_database",
     }
     for raw in path.read_text(encoding="utf-8").splitlines():
         line = raw.strip()
@@ -117,6 +128,7 @@ def _parse_bat_sets(path: Path) -> dict[str, str]:
         "HEMO_DB_USER": "user",
         "HEMO_DB_NAME": "database",
         "PGPASSWORD": "password",
+        "HEMO_MASTER_DB_NAME": "master_database",
     }
     for raw in path.read_text(encoding="utf-8").splitlines():
         line = raw.strip()
@@ -272,13 +284,13 @@ def run_sql_file(cfg: DbConfig, path: Path, *, timeout: int = 600) -> SqlResult:
     return SqlResult(path=path, ok=True, detail=stdout)
 
 
-def _count_sql(table: str) -> str:
+def _count_sql(table: str, schema: str = SCHEMA) -> str:
     # Avoid failing the whole batch if one table missing: one statement per call
-    return f'SELECT COUNT(*) FROM {SCHEMA}."{table}";'
+    return f'SELECT COUNT(*) FROM {schema}."{table}";'
 
 
-def probe_count(cfg: DbConfig, table: str) -> TableCount:
-    ok, out = run_psql(cfg, _count_sql(table), timeout=30)
+def probe_count(cfg: DbConfig, table: str, schema: str = SCHEMA) -> TableCount:
+    ok, out = run_psql(cfg, _count_sql(table, schema), timeout=30)
     if not ok:
         return TableCount(name=table, count=None, error=out.splitlines()[-1] if out else "error")
     try:
@@ -351,6 +363,13 @@ def collect_status(cfg: DbConfig | None = None, root: Path | None = None) -> DbS
                 probe_count(cfg, "AutoStockItems"),
             ],
         ),
+        "h": GroupStatus(
+            key="h",
+            label="H — HemoAdmin",
+            tables=[
+                probe_count(cfg_for_group(cfg, "h"), "AdminUsers", schema="public"),
+            ],
+        ),
     }
     return DbStatus(
         docker_ok=True,
@@ -362,6 +381,17 @@ def collect_status(cfg: DbConfig | None = None, root: Path | None = None) -> DbS
     )
 
 
+def hemo_admin_dir(root: Path | None = None) -> Path:
+    return (root or repo_root()) / "seeds" / "hemo_admin"
+
+
+def cfg_for_group(cfg: DbConfig, group: str) -> DbConfig:
+    """Group H writes platform admins in the master database."""
+    if group.lower() == "h":
+        return replace(cfg, database=cfg.master_database)
+    return cfg
+
+
 def seed_files_for(group: str, root: Path | None = None) -> list[Path]:
     root = root or repo_root()
     g = group.lower()
@@ -371,17 +401,19 @@ def seed_files_for(group: str, root: Path | None = None) -> list[Path]:
         return [b_sessions_dir(root) / name for name in B_FILES]
     if g == "c":
         return [c_stock_dir(root) / name for name in C_FILES]
+    if g == "h":
+        return [hemo_admin_dir(root) / name for name in H_FILES]
     raise ValueError(f"unknown seed group: {group}")
 
 
 def normalize_run_order(groups: list[str]) -> list[str]:
-    """Canonical order: A → C → B (B depends on patients; C independent)."""
+    """Canonical order: H → A → C → B (H is master DB; B depends on patients)."""
     wanted = {g.lower() for g in groups}
     order = []
-    for g in ("a", "c", "b"):
+    for g in ("h", "a", "c", "b"):
         if g in wanted:
             order.append(g)
-    unknown = wanted - {"a", "b", "c"}
+    unknown = wanted - {"a", "b", "c", "h"}
     if unknown:
         raise ValueError(f"unknown groups: {', '.join(sorted(unknown))}")
     return order
@@ -401,6 +433,11 @@ def build_warnings(status: DbStatus, groups: list[str]) -> list[str]:
             warnings.append("Could not read Patients count — B may fail on FK.")
     for g in selected:
         gs = status.groups.get(g)
+        if g == "h" and gs and gs.populated:
+            warnings.append(
+                "H — HemoAdmin already has AdminUsers — re-seed updates good/nott and resets their password."
+            )
+            continue
         if gs and gs.populated:
             warnings.append(
                 f"{gs.label} already has rows — re-seed will likely hit duplicate key errors."
@@ -432,17 +469,19 @@ def run_groups(
     root = root or repo_root()
     cfg = cfg or DbConfig.load(root)
     order = normalize_run_order(groups)
-    files: list[Path] = []
+    files: list[tuple[DbConfig, Path]] = []
     for g in order:
-        files.extend(seed_files_for(g, root))
+        group_cfg = cfg_for_group(cfg, g)
+        for path in seed_files_for(g, root):
+            files.append((group_cfg, path))
 
     total = len(files)
     passed = 0
     failed = 0
-    for i, path in enumerate(files, start=1):
+    for i, (group_cfg, path) in enumerate(files, start=1):
         if on_start:
             on_start(i, total, path)
-        result = run_sql_file(cfg, path)
+        result = run_sql_file(group_cfg, path)
         if result.ok:
             passed += 1
         else:
